@@ -11,11 +11,36 @@
   font-weight: normal;
   font-style: normal;
 }
-
+html {
+  height: 100%;
+}
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  font-size: 1em; /* Ustawienie bazowego rozmiaru czcionki dla łatwiejszego skalowania em */
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Pełna wysokość ekranu */
+  background-image: url("../images/main_page/sample_background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Rubik", Arial, sans-serif;
+}
+html,
+body {
+  height: 100%; /* Upewnij się, że elementy html i body mają minimalną wysokość 100% */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Pełna wysokość ekranu */
+}
+
+.main-content {
+  flex: 1; /* Zawartość główna strony zajmuje dostępną przestrzeń */
 }
 
 .navbar {
@@ -71,10 +96,14 @@ body {
   font-size: 1.25em; /* Zwiększenie rozmiaru tekstu dla linków */
 }
 
-.navbar__link:hover,
-.navbar__link:hover .navbar__link-icon {
-  background-color: transparent; /* Upewniamy się, że tło jest przeźroczyste */
+.navbar__link:hover {
   transform: scale(1.15); /* Powiększanie tekstu i ikony */
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5); /* Cień dla tekstu */
+}
+
+.navbar__link:hover .navbar__link-icon {
+  transform: scale(1.15);
+  filter: drop-shadow(0 1 2px rgba(0, 0, 0, 0.5)); /* Cień dla ikony */
 }
 
 .navbar__link-icon {
@@ -84,4 +113,29 @@ body {
 
 .navbar__link:hover {
   color: black;
+}
+
+/* Style dla stopki */
+/* Style dla stopki */
+footer {
+  background: linear-gradient(
+    to bottom,
+    #4a4a4a,
+    #9e9e9e
+  ); /* Gradient od ciemnoszarego do jasnoszarego */
+  color: #333; /* Kolor tekstu */
+  text-align: center; /* Wyśrodkowanie tekstu */
+  padding: 0.4em 0; /* Górny i dolny padding */
+  font-family: "Rubik", Arial, sans-serif; /* Ta sama czcionka co na podstrony */
+  font-size: 0.875em; /* Mniejszy rozmiar czcionki, dostosuj zgodnie z potrzebami */
+  border-top: 1px solid #e7e7e7; /* Linia na górze stopki */
+  width: 100%; /* Szerokość na całą stronę */
+  margin-top: auto; /* Spowoduje przesunięcie stopki do dołu */
+  color: black;
+}
+
+/* Dodaj tę klasę do twojego CSS */
+.design-credits {
+  color: rgb(29, 26, 26); /* Czerwony kolor dla kredytów projektowych */
+  font-weight: bold;
 }
