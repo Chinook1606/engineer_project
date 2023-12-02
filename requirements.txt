@@ -1,0 +1,2 @@
+#LTS dla Node JS
+node 20.10.0

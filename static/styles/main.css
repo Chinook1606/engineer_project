@@ -1,0 +1,82 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik/static/Rubik-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik/Rubik-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 1em; /* Ustawienie bazowego rozmiaru czcionki dla łatwiejszego skalowania em */
+}
+
+.navbar {
+  background-color: #f8f8f8;
+  overflow: hidden;
+  font-family: "Rubik", Arial, sans-serif;
+  border-bottom: 1px solid #e7e7e7;
+  height: 5.625em; /* 90px przy bazowym rozmiarze czcionki 16px */
+  box-shadow: 0 0.3125em 1.25em 0 rgba(0, 0, 0, 0.1); /* Subtelny cień dla efektu głębi */
+  font-weight: bold;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 1.25em;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar__logo-img {
+  height: 5em; /* Zmniejszenie wysokości logo do pasowania do nowej wysokości paska */
+}
+
+.navbar__brand {
+  font-size: 2.5em; /* Zwiększenie rozmiaru dla lepszej widoczności */
+  text-decoration: none;
+  color: #333;
+  margin-left: 0.625em;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: #333;
+  padding: 0.875em 1em;
+  display: flex;
+  align-items: center;
+  margin-left: 1.5em; /* Dodanie większego odstępu między linkami */
+  font-size: 1.25em; /* Zwiększenie rozmiaru tekstu dla linków */
+}
+
+.navbar__link-icon {
+  height: 1.5em;
+  margin-right: 0.5em;
+}
+
+.navbar__link:hover {
+  background-color: #ddd;
+  color: black;
+}
