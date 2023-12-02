@@ -71,12 +71,17 @@ body {
   font-size: 1.25em; /* Zwiększenie rozmiaru tekstu dla linków */
 }
 
+.navbar__link:hover,
+.navbar__link:hover .navbar__link-icon {
+  background-color: transparent; /* Upewniamy się, że tło jest przeźroczyste */
+  transform: scale(1.15); /* Powiększanie tekstu i ikony */
+}
+
 .navbar__link-icon {
   height: 1.5em;
   margin-right: 0.5em;
 }
 
 .navbar__link:hover {
-  background-color: #ddd;
   color: black;
 }
