@@ -1,9 +1,4 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   var menuIcon = document.querySelector(".navbar__menu-icon");
-//   var navLinks = document.querySelector(".navbar__menu-list");
-
-//   menuIcon.addEventListener("click", function () {
-//     console.log("Menu icon clicked");
-//     navLinks.classList.toggle("hidden");
-//   });
-// });
+document.getElementById("mobile-menu").addEventListener("click", function () {
+  var links = document.querySelector(".navbar__links");
+  links.classList.toggle("active"); // Dodaje klasę 'active' do .navbar__links
+});
