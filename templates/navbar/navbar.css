@@ -1,0 +1,169 @@
+.navbar {
+  background-color: #f8f8f8;
+  overflow: hidden;
+  font-family: "Rubik", Arial, sans-serif;
+  border-bottom: 1px solid #e7e7e7;
+  height: 5.625em;
+  box-shadow: 0 0.3125em 1.25em 0 rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 1.25em;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar__logo-img {
+  height: 5em;
+}
+
+.navbar__brand {
+  font-size: 2.5em;
+  text-decoration: none;
+  color: #333;
+  margin-left: 0.625em;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: #333;
+  padding: 0.875em 1em;
+  display: flex;
+  align-items: center;
+  margin-left: 1.5em;
+  font-size: 1.25em;
+}
+
+.navbar__link:hover {
+  transform: scale(1.15);
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.navbar__link-icon {
+  height: 1.5em;
+  margin-right: 0.5em;
+}
+
+/* Styl ikony hamburgera */
+.navbar__toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #333;
+}
+/* Styl dla rozwijanego menu */
+@media screen and (max-width: 768px) {
+  .navbar__toggle {
+    display: block;
+  }
+
+  .navbar__links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #ffffff; /* Białe tło dla kontrastu */
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    transition: max-height 0.3s ease, box-shadow 0.3s ease;
+    top: 5.625em;
+    left: 0;
+    max-height: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lekki cień dla głębi */
+    border-top: none;
+    z-index: 5; /* Zapewnienie, że menu jest nad innymi elementami */
+  }
+
+  .navbar__links.active {
+    max-height: 300px; /* Dostosuj do ilości treści */
+  }
+
+  .navbar__link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1em; /* Dodanie paddingu dla lepszego wyglądu */
+    border-bottom: 1px solid #e7e7e7; /* Oddzielenie linków */
+    background-color: #ffffff; /* Tło linku */
+    color: #333; /* Kolor tekstu */
+    transition: background-color 0.3s ease; /* Płynne przejście koloru tła */
+    margin-left: 1.5em;
+    font-size: 1.25em;
+  }
+
+  .navbar__link:last-child {
+    border-bottom: none;
+  }
+
+  .navbar__link:hover,
+  .navbar__link:focus {
+    background-color: #f2f2f7; /* Delikatna zmiana koloru tła przy hoverze */
+    color: #5b63d8; /* Zmiana koloru tekstu na kolor akcentu */
+    /* transform: translateX(5em); */
+  }
+
+  .navbar__link-text,
+  .navbar__link-icon {
+    transition: margin-left 0.3s ease; /* Płynne przejście dla margin-left */
+  }
+
+  .navbar__link-icon {
+    margin-right: 0.5em;
+    transition: transform 0.3s ease; /* Animacja ikony */
+  }
+  .navbar__link:hover .navbar__link-text,
+  .navbar__link:focus .navbar__link-text {
+    margin-left: 3em; /* Dodanie odstępu z lewej strony dla tekstu */
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center; /* Wyśrodkowanie w pionie */
+  }
+
+  .navbar__link:hover .navbar__link-icon,
+  .navbar__link:focus .navbar__link-icon {
+    margin-left: 3em; /* Dodanie odstępu z lewej strony dla ikony */
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center; /* Wyśrodkowanie w pionie */
+  }
+  .navbar__link-text {
+    /* ...inne style... */
+    transition: margin-left 0.3s ease, padding-top 0.3s ease; /* Płynne przejście dla margin i padding */
+  }
+}
+
+/* Dodanie efektu fade-in dla ikonek w menu */
+.navbar__link-icon {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navbar__link:hover .navbar__link-icon,
+.navbar__link:focus .navbar__link-icon {
+  opacity: 1; /* Pełna widoczność ikony na hover */
+}

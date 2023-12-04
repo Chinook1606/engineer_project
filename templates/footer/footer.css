@@ -1,0 +1,18 @@
+footer {
+  background: linear-gradient(to bottom, #4a4a4a, #9e9e9e);
+  color: #333;
+  text-align: center;
+  padding: 0.4em 0;
+  font-family: "Rubik", Arial, sans-serif;
+  font-size: 0.875em;
+  border-top: 1px solid #e7e7e7;
+  width: 100%;
+  margin-top: auto;
+  height: 3.25em;
+  padding-top: 1em;
+}
+
+.design-credits {
+  color: rgb(29, 26, 26);
+  font-weight: bold;
+}
