@@ -11,4 +11,4 @@ function loadTemplate(templatePath, placeholderId, callback) {
 
 // Ładowanie navbaru i stopki
 loadTemplate("templates/navbar/navbar.html", "navbar-placeholder", setupNavbar);
-loadTemplate("templates/footer/footer.html", "footer-placeholder", setupNavbar);
+loadTemplate("templates/footer/footer.html", "footer-placeholder");
