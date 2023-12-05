@@ -10,5 +10,9 @@ function loadTemplate(templatePath, placeholderId, callback) {
 }
 
 // Ładowanie navbaru i stopki
-loadTemplate("templates/navbar/navbar.html", "navbar-placeholder", setupNavbar);
-loadTemplate("templates/footer/footer.html", "footer-placeholder");
+loadTemplate(
+  "assets/templates/navbar/navbar.html",
+  "navbar-placeholder",
+  setupNavbar
+);
+loadTemplate("assets/templates/footer/footer.html", "footer-placeholder");
