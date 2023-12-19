@@ -3,7 +3,7 @@
   overflow: hidden;
   font-family: "Rubik", Arial, sans-serif;
   border-bottom: 1px solid #e7e7e7;
-  height: 5.625em;
+  height: 8vh;
   box-shadow: 0 0.3125em 1.25em 0 rgba(0, 0, 0, 0.1);
   font-weight: bold;
 }
@@ -27,13 +27,19 @@
 }
 
 .navbar__brand {
-  font-size: 2.5em;
+  font-size: 2vw;
   text-decoration: none;
   color: #333;
   margin-left: 0.625em;
   display: flex;
   align-items: center;
   font-weight: bold;
+}
+
+@media screen and (max-width: 930px) {
+  .navbar__brand {
+    font-size: 3vw;
+  }
 }
 
 .navbar__links {

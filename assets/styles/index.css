@@ -1,0 +1,75 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url("../images/main_page/sample_background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Rubik", Arial, sans-serif;
+  margin-bottom: 3.25em; /* Dodaj dolny margines równy wysokości stopki */
+}
+
+.rounded-container {
+  background-color: #ffffff; /* Dodaj biały kolor tła */
+  border-radius: 30px 30px 0 0; /* Przywróć zaokrąglenie rogów */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcjonalny cień dla efektu głębi */
+  /* reszta stylów */
+  position: absolute; /* Pozycjonowanie względem najbliższego elementu pozycjonowanego */
+  bottom: 3.85em; /* Odstęp od dolnej części strony równy wysokości stopki */
+  left: 0;
+  right: 0;
+  margin-left: auto; /* Centralizacja kontenera */
+  margin-right: auto; /* Centralizacja kontenera */
+  width: 50em; /* Szerokość kontenera minus odstępy od krawędzi */
+  padding: 2em; /* Wewnętrzny odstęp */
+  z-index: 10; /* Upewnij się, że kontener jest nad tłem */
+  margin-left: 5em;
+}
+
+.content-section {
+  display: flex;
+  justify-content: space-around; /* Rozkładanie dzieci równomiernie w poziomie */
+  flex-wrap: wrap; /* Zezwolenie na zawijanie elementów */
+  gap: 2rem; /* Odstępy między elementami */
+}
+
+.content-block {
+  flex-basis: calc(
+    33.333% - 2rem
+  ); /* Ustawienie szerokości dla bloków treści z uwzględnieniem odstępów */
+  text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.content-block h2 {
+  margin-bottom: 0.5rem; /* Margines dolny dla nagłówków */
+}
+
+.content-block p {
+  margin-bottom: 1.5rem; /* Margines dolny dla akapitów */
+}
+
+@media (max-width: 768px) {
+  .content-section {
+    flex-direction: column; /* Ustawienie elementów w pionie dla mniejszych ekranów */
+  }
+
+  .content-block {
+    flex-basis: auto; /* Auto-szerokość dla bloków treści na mniejszych ekranach */
+  }
+}
+
+@media (max-width: 768px) {
+  .rounded-container {
+    width: auto; /* Na mniejszych ekranach może być potrzebna pełna szerokość */
+    margin: 0 1em; /* Mniejsze marginesy boczne dla mniejszych ekranów */
+    bottom: 3.25em; /* Odstęp od stopki */
+  }
+}
