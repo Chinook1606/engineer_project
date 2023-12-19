@@ -17,20 +17,22 @@ body {
   position: relative;
   /* margin-bottom: 3.25em; Dodaj dolny margines równy wysokości stopki/ */
 }
-
 .rounded-container {
-  background-color: #ffffff; /* Dodaj biały kolor tła */
-  border-radius: 30px 30px 0 0; /* Przywróć zaokrąglenie rogów */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcjonalny cień dla efektu głębi */
-  /* reszta stylów */
-  left: 0;
-  right: 0;
-  margin-left: auto; /* Centralizacja kontenera */
-  margin-right: auto; /* Centralizacja kontenera */
-  width: 50em; /* Szerokość kontenera minus odstępy od krawędzi */
-  padding: 2em; /* Wewnętrzny odstęp */
-  z-index: 10; /* Upewnij się, że kontener jest nad tłem */
-  margin-left: 5em;
+  background-color: #ffffff; /* Biały kolor tła */
+  border-radius: 30px 30px 0 0; /* Zaokrąglenie rogów */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Cień dla efektu głębi */
+  position: absolute; /* Absolutne pozycjonowanie w stosunku do najbliższego pozycjonowanego przodka */
+  bottom: 60px; /* Dostosuj tę wartość do wysokości stopki */
+  left: 0; /* Przyleganie do lewej krawędzi okna przeglądarki */
+  width: calc(
+    100% - 2em
+  ); /* Szerokość kontenera z odjęciem paddingu z lewej i prawej strony */
+  max-width: 48em; /* Maksymalna szerokość kontenera */
+  padding: 2em; /* Wewnętrzny odstęp od krawędzi kontenera */
+  z-index: 10; /* Upewnij się, że kontener jest widoczny nad innymi elementami */
+  margin-left: 3em; /* Centralizacja kontenera (w połączeniu z right: auto) */
+  margin-right: auto; /* Centralizacja kontenera (w połączeniu z left: auto) */
+  margin-bottom: -1em; /* Odstęp od stopki, dostosuj do wysokości stopki */
 }
 
 .content-section {
@@ -64,6 +66,14 @@ body {
     flex-basis: auto; /* Auto-szerokość dla bloków treści na mniejszych ekranach */
   }
 }
+/* Styl dla ekranów mniejszych niż 1000px ale większych niż 768px */
+@media (min-width: 769px) and (max-width: 1000px) {
+  .rounded-container {
+    max-width: calc(
+      100% - 13em
+    ); /* 2rem to będzie 16px z obu stron, jeśli 1rem = 8px */
+  }
+}
 
 @media (max-width: 768px) {
   .rounded-container {
@@ -75,4 +85,37 @@ body {
 
 footer {
   position: absolute;
+}
+
+.header-title {
+  position: absolute;
+  right: 0; /* Wyrównanie do prawej krawędzi */
+  top: 0; /* Wyrównanie do górnej krawędzi */
+  max-width: 50%; /* Maksymalna szerokość tekstu, dostosuj według potrzeb */
+  text-align: right; /* Wyrównanie tekstu do prawej */
+  color: #2a2020; /* Biały kolor tekstu */
+  padding: 2rem; /* Odstęp od krawędzi, dostosuj według potrzeb */
+  font-family: "Rubik", Arial, sans-serif; /* Ta sama rodzina czcionek co reszta strony */
+  z-index: 10; /* Upewnij się, że tekst jest widoczny nad tłem */
+  top: 5em;
+}
+
+.header-title h1 {
+  font-size: 5rem; /* Wielkość czcionki, dostosuj według potrzeb */
+  margin: 0; /* Usunięcie domyślnego marginesu */
+  /* margin-top: 1.15em; */
+}
+
+.header-title h2 {
+  font-size: 3.4rem; /* Wielkość czcionki, dostosuj według potrzeb */
+  margin: 0; /* Usunięcie domyślnego marginesu */
+  margin-top: 0.35em;
+  color: #5b63d8;
+}
+
+.header-title h4 {
+  /* font-size: 2.25rem; */
+  margin: 0; /* Usunięcie domyślnego marginesu */
+  margin-top: 3em;
+  color: rgb(29, 29, 33);
 }
