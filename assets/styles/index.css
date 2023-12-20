@@ -33,6 +33,8 @@ body {
   margin-left: 3em; /* Centralizacja kontenera (w połączeniu z right: auto) */
   margin-right: auto; /* Centralizacja kontenera (w połączeniu z left: auto) */
   margin-bottom: -1em; /* Odstęp od stopki, dostosuj do wysokości stopki */
+  padding-bottom: 0;
+  padding-top: 1em;
 }
 
 .content-section {
