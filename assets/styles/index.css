@@ -36,6 +36,29 @@ body {
   padding-bottom: 0;
   padding-top: 1em;
 }
+.rounded-container p.introduction {
+  background-color: rgba(91, 99, 216, 0.2); /* Delikatne fioletowe tło */
+  color: #333; /* Kolor tekstu */
+  text-align: center; /* Wyśrodkowanie tekstu */
+  font-size: 1.75rem; /* Zwiększony rozmiar czcionki */
+  line-height: 1.6; /* Wysokość linii dla poprawy czytelności */
+  padding: 0.5em 0; /* Zwiększony padding tylko w pionie */
+  margin: 0; /* Usunięcie marginesów zewnętrznych */
+  width: 100%; /* Szerokość na całą szerokość kontenera */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Delikatny cień dla głębi */
+  border-radius: 10px; /* Zaokrąglenie rogów */
+  display: block; /* Blokowe wyświetlanie, aby rozciągnąć na całą szerokość */
+  font-weight: bolder;
+}
+
+.rounded-container p.introduction span.emphasized {
+  font-weight: bold; /* Pogrubienie dla wyróżnienia */
+  color: #5b63d8; /* Kolor dla wyróżnienia */
+}
+
+.content-section {
+  margin-top: 0.5em; /* Zmniejszona odległość do elementów poniżej */
+}
 
 .content-section {
   display: flex;
@@ -121,3 +144,38 @@ footer {
   margin-top: 3em;
   color: rgb(29, 29, 33);
 }
+
+.content-block:hover {
+  transform: scale(1.03); /* Lekkie powiększenie */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Cień dla efektu głębi */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animacja efektów */
+}
+
+.content-block:hover h2,
+.content-block:hover p {
+  color: #5b63d8; /* Zmiana koloru tekstu */
+}
+
+.content-block img:hover {
+  opacity: 0.9; /* Lekkie przyciemnienie obrazu */
+}
+/* 
+.content-link,
+.content-link:link,
+.content-link:visited,
+.content-link:hover,
+.content-link:active,
+.content-link:focus {
+  text-decoration: none; /* Usuwa podkreślenie z linków */
+  color: inherit; /* Utrzymuje dziedziczony kolor tekstu */
+  outline: none; /* Usuwa obwódkę fokusu */
+  box-shadow: none; /* Usuwa cienie */
+  border: none; /* Usuwa obramowanie */
+  background: none; /* Zapobiega zmianom tła */
+}
+
+/* Dodatkowo, aby usunąć efekty dla obrazków wewnątrz linku */
+.content-link img {
+  border: none; /* Usuwa obramowanie obrazka */
+  outline: none; /* Usuwa obwódkę fokusu */
+} */
