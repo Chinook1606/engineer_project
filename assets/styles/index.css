@@ -139,10 +139,28 @@ footer {
 }
 
 .header-title h4 {
-  /* font-size: 2.25rem; */
   margin: 0; /* Usunięcie domyślnego marginesu */
   margin-top: 3em;
   color: rgb(29, 29, 33);
+}
+
+.content-block a h2,
+.content-block h2,
+.content-block a:link,
+.content-block a:visited,
+.content-block a:hover,
+.content-block a:active,
+.content-block:active,
+.content-block:hover,
+.content-block:visited,
+.content-block:link,
+.content-block a:focus {
+  text-decoration: none; /* Usuwa podkreślenie */
+  color: inherit; /* Zapewnia, że linki dziedziczą kolor tekstu z elementu nadrzędnego */
+  background-color: transparent; /* Zapewnia, że tło jest przezroczyste */
+  outline: none; /* Usuwa obwódkę po kliknięciu */
+  border-radius: none;
+  box-shadow: none;
 }
 
 .content-block:hover {
@@ -151,31 +169,14 @@ footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animacja efektów */
 }
 
-.content-block:hover h2,
-.content-block:hover p {
+.content-block:hover h2 {
   color: #5b63d8; /* Zmiana koloru tekstu */
 }
 
 .content-block img:hover {
   opacity: 0.9; /* Lekkie przyciemnienie obrazu */
 }
-/* 
-.content-link,
-.content-link:link,
-.content-link:visited,
-.content-link:hover,
-.content-link:active,
-.content-link:focus {
-  text-decoration: none; /* Usuwa podkreślenie z linków */
-  color: inherit; /* Utrzymuje dziedziczony kolor tekstu */
-  outline: none; /* Usuwa obwódkę fokusu */
-  box-shadow: none; /* Usuwa cienie */
-  border: none; /* Usuwa obramowanie */
-  background: none; /* Zapobiega zmianom tła */
-}
 
-/* Dodatkowo, aby usunąć efekty dla obrazków wewnątrz linku */
-.content-link img {
-  border: none; /* Usuwa obramowanie obrazka */
-  outline: none; /* Usuwa obwódkę fokusu */
-} */
+.content-block .content-block:hover {
+  box-shadow: none;
+}
