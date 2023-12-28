@@ -104,9 +104,10 @@ a {
 }
 
 .content {
-  width: 30vw;
+  width: 32vw;
+  text-align: left;
   min-height: 57vh;
-  margin-left: 30vw;
+  margin-left: 27vw;
   font-size: 17pt;
 }
 
