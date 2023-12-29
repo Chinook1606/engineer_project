@@ -12,9 +12,16 @@ footer {
   bottom: 0;
   right: 0;
   z-index: 100; /* Aby stopka była ponad innymi elementami */
+  height: 3em;
 }
 
 .design-credits {
   color: rgb(29, 26, 26);
   font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  footer {
+    bottom: -47em;
+  }
 }

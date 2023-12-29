@@ -1,147 +1,125 @@
 html,
 body {
-  height: 100%;
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
-body {
+.container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   background-image: url("../images/main_page/sample_background.jpg");
-  background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  background-size: cover;
+}
+/* ------------------------- */
+
+.header-title {
+  text-align: right;
+  color: #2a2020;
+  font-family: "Rubik", Arial, sans-serif;
+  width: 100%;
+  height: 30em;
+}
+.header-title h1 {
+  font-size: 9rem;
+  margin: 0;
+  text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+    2px 2px 0 #fff;
+  margin-right: 0.2em;
+}
+
+.header-title h2 {
+  font-size: 6.2rem;
+  margin: 0;
+  margin-top: 0.2em;
+  color: #5b63d8;
+  text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+    2px 2px 0 #fff;
+  margin-right: 0.3em;
+}
+
+@media (max-width: 1300px) or (max-height: 1000px) {
+  .header-title h1 {
+    margin-top: 0.5em;
+    text-align: center;
+    font-size: 9.7vh;
+    margin-left: 0.2em;
+  }
+  .header-title h2 {
+    text-align: center;
+    font-size: 7.5vh;
+  }
+}
+
+/* ------------------------- */
+.main-part {
+  width: 100%;
   font-family: "Rubik", Arial, sans-serif;
   position: relative;
-  /* margin-bottom: 3.25em; Dodaj dolny margines równy wysokości stopki/ */
+  min-height: calc(92vh - 34em);
+  height: auto;
 }
+
 .rounded-container {
-  background-color: #ffffff; /* Biały kolor tła */
-  border-radius: 30px 30px 0 0; /* Zaokrąglenie rogów */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Cień dla efektu głębi */
-  position: absolute; /* Absolutne pozycjonowanie w stosunku do najbliższego pozycjonowanego przodka */
-  bottom: 60px; /* Dostosuj tę wartość do wysokości stopki */
-  left: 0; /* Przyleganie do lewej krawędzi okna przeglądarki */
-  width: calc(
-    100% - 2em
-  ); /* Szerokość kontenera z odjęciem paddingu z lewej i prawej strony */
-  max-width: 48em; /* Maksymalna szerokość kontenera */
-  padding: 2em; /* Wewnętrzny odstęp od krawędzi kontenera */
-  z-index: 10; /* Upewnij się, że kontener jest widoczny nad innymi elementami */
-  margin-left: 3em; /* Centralizacja kontenera (w połączeniu z right: auto) */
-  margin-right: auto; /* Centralizacja kontenera (w połączeniu z left: auto) */
-  margin-bottom: -1em; /* Odstęp od stopki, dostosuj do wysokości stopki */
-  padding-bottom: 0;
-  padding-top: 1em;
+  background-color: #ffffff;
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2em;
+  width: calc(100% - 10em);
+  margin-left: 3em;
+  margin-right: auto;
+  max-width: 61em;
+  height: auto;
+  max-height: 70vh;
 }
+
 .rounded-container p.introduction {
-  background-color: rgba(91, 99, 216, 0.2); /* Delikatne fioletowe tło */
-  color: #333; /* Kolor tekstu */
-  text-align: center; /* Wyśrodkowanie tekstu */
-  font-size: 1.75rem; /* Zwiększony rozmiar czcionki */
-  line-height: 1.6; /* Wysokość linii dla poprawy czytelności */
-  padding: 0.5em 0; /* Zwiększony padding tylko w pionie */
-  margin: 0; /* Usunięcie marginesów zewnętrznych */
-  width: 100%; /* Szerokość na całą szerokość kontenera */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Delikatny cień dla głębi */
-  border-radius: 10px; /* Zaokrąglenie rogów */
-  display: block; /* Blokowe wyświetlanie, aby rozciągnąć na całą szerokość */
+  background-color: rgba(91, 99, 216, 0.2);
+  color: #333;
+  text-align: center;
+  font-size: 1.75rem;
+  line-height: 1.6;
+  padding: 0.5em 0;
+  margin: 0;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: block;
   font-weight: bolder;
 }
 
 .rounded-container p.introduction span.emphasized {
-  font-weight: bold; /* Pogrubienie dla wyróżnienia */
-  color: #5b63d8; /* Kolor dla wyróżnienia */
-}
-
-.content-section {
-  margin-top: 0.5em; /* Zmniejszona odległość do elementów poniżej */
+  font-weight: bold;
+  color: #5b63d8;
 }
 
 .content-section {
   display: flex;
-  justify-content: space-around; /* Rozkładanie dzieci równomiernie w poziomie */
-  flex-wrap: wrap; /* Zezwolenie na zawijanie elementów */
-  gap: 2rem; /* Odstępy między elementami */
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 0.5em;
 }
 
 .content-block {
-  flex-basis: calc(
-    33.333% - 2rem
-  ); /* Ustawienie szerokości dla bloków treści z uwzględnieniem odstępów */
-  text-align: center; /* Wyśrodkowanie tekstu */
+  flex-basis: calc(33.333% - 2rem);
+  text-align: center;
 }
 
 .content-block h2 {
-  margin-bottom: 0.5rem; /* Margines dolny dla nagłówków */
+  margin-bottom: 0.5rem;
 }
 
 .content-block p {
-  margin-bottom: 1.5rem; /* Margines dolny dla akapitów */
-}
-
-@media (max-width: 768px) {
-  .content-section {
-    flex-direction: column; /* Ustawienie elementów w pionie dla mniejszych ekranów */
-  }
-
-  .content-block {
-    flex-basis: auto; /* Auto-szerokość dla bloków treści na mniejszych ekranach */
-  }
-}
-/* Styl dla ekranów mniejszych niż 1000px ale większych niż 768px */
-@media (min-width: 769px) and (max-width: 1000px) {
-  .rounded-container {
-    max-width: calc(
-      100% - 13em
-    ); /* 2rem to będzie 16px z obu stron, jeśli 1rem = 8px */
-  }
-}
-
-@media (max-width: 768px) {
-  .rounded-container {
-    width: auto; /* Na mniejszych ekranach może być potrzebna pełna szerokość */
-    margin: 0 1em; /* Mniejsze marginesy boczne dla mniejszych ekranów */
-    bottom: 3.25em; /* Odstęp od stopki */
-  }
-}
-
-footer {
-  position: absolute;
-}
-
-.header-title {
-  position: absolute;
-  right: 0; /* Wyrównanie do prawej krawędzi */
-  top: 0; /* Wyrównanie do górnej krawędzi */
-  max-width: 50%; /* Maksymalna szerokość tekstu, dostosuj według potrzeb */
-  text-align: right; /* Wyrównanie tekstu do prawej */
-  color: #2a2020; /* Biały kolor tekstu */
-  padding: 2rem; /* Odstęp od krawędzi, dostosuj według potrzeb */
-  font-family: "Rubik", Arial, sans-serif; /* Ta sama rodzina czcionek co reszta strony */
-  z-index: 10; /* Upewnij się, że tekst jest widoczny nad tłem */
-  top: 5em;
-}
-
-.header-title h1 {
-  font-size: 5rem; /* Wielkość czcionki, dostosuj według potrzeb */
-  margin: 0; /* Usunięcie domyślnego marginesu */
-  /* margin-top: 1.15em; */
-}
-
-.header-title h2 {
-  font-size: 3.4rem; /* Wielkość czcionki, dostosuj według potrzeb */
-  margin: 0; /* Usunięcie domyślnego marginesu */
-  margin-top: 0.35em;
-  color: #5b63d8;
-}
-
-.header-title h4 {
-  margin: 0; /* Usunięcie domyślnego marginesu */
-  margin-top: 3em;
-  color: rgb(29, 29, 33);
+  margin-bottom: 1.5rem;
 }
 
 .content-block a h2,
@@ -155,28 +133,82 @@ footer {
 .content-block:visited,
 .content-block:link,
 .content-block a:focus {
-  text-decoration: none; /* Usuwa podkreślenie */
-  color: inherit; /* Zapewnia, że linki dziedziczą kolor tekstu z elementu nadrzędnego */
-  background-color: transparent; /* Zapewnia, że tło jest przezroczyste */
-  outline: none; /* Usuwa obwódkę po kliknięciu */
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+  outline: none;
   border-radius: none;
   box-shadow: none;
 }
 
 .content-block:hover {
-  transform: scale(1.03); /* Lekkie powiększenie */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Cień dla efektu głębi */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animacja efektów */
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .content-block:hover h2 {
-  color: #5b63d8; /* Zmiana koloru tekstu */
+  color: #5b63d8;
 }
 
 .content-block img:hover {
-  opacity: 0.9; /* Lekkie przyciemnienie obrazu */
+  opacity: 0.9;
 }
 
 .content-block .content-block:hover {
   box-shadow: none;
+  padding: 0 0.3em;
+  transition: 0.8ms;
+}
+
+@media (max-width: 930px) {
+  .header-title {
+    height: 100%;
+  }
+  .header-title h1 {
+    margin-top: 0.3em;
+    text-align: center;
+    font-size: 7vh;
+  }
+  .header-title h2 {
+    text-align: center;
+    font-size: 5vh;
+  }
+  .main-part {
+    height: 1000px;
+  }
+  .rounded-container {
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+  }
+  .content-block {
+    flex-basis: auto;
+  }
+  .rounded-container {
+    height: auto;
+    max-height: 100vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-title h1 {
+    margin-top: 0.5em;
+    text-align: center;
+    font-size: 3em;
+  }
+  .header-title h2 {
+    text-align: center;
+    font-size: 2.2em;
+  }
+  .header-title {
+    height: 17em;
+  }
+
+  .main-part {
+    height: 1200px;
+  }
+  .rounded-container {
+    max-height: none;
+  }
 }
