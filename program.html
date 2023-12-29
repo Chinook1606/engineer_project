@@ -12,20 +12,30 @@
     <script src="assets/templates/navbar/navbar.js"></script>
     <script>
       function calculate() {
+          event.preventDefault(); 
+
           const mk = document.getElementsByName("masa_mk")[0].value;
           const mkw = document.getElementsByName("masa_mk_w")[0].value;
-          const mw = document.getElementsByName("masa_wody")[0].value;
+          const mcst = document.getElementsByName("masa_cst")[0].value; // nie znamy masy własnej obiektu, więc trzeba ją podać, do wyjaśnienia
           const t1 = document.getElementsByName("temp_pocz")[0].value;
           const t2 = document.getElementsByName("temp_cialo")[0].value;
           const t3 = document.getElementsByName("temp_konc")[0].value;
 
+          let q1 = 0; //nie znamy ciepła właściwego kalorymetru, więc zakładamy 0 - do wyjaśnienia
+          let q2 = (mkw-mk) * 4.18 * (t3-t1);
+          let q3 = q1 + q2;
+          let cc = (q3)/(mcst*(t2-t3));
+
           console.log('Masa kalorymetru mk:', mk);
           console.log('Masa kalorymetru z wodą mk+w:', mkw);
-          console.log('Masa wody mw:', mw);
+          console.log('Masa wody mw:', mcst);
           console.log('Temperatura początkowa wody t1:', t1);
           console.log('Temperatura ciała stałego t2:', t2);
           console.log('Temperatura końcowa wody t3:', t3);
-          return false;
+          console.log("Ciepło pobrane przez kalorymetr: " , q1);
+          console.log("Ciepło pobrane przez wodę w kalorymetrze: ", q2);
+          console.log("Ciepło oddane przez ciało stałe: ", q3);
+          console.log("Ciepło właściwe ciała stałego", cc);
       }
       </script>
   </head>
@@ -50,7 +60,7 @@
       <form onsubmit="return calculate();">
         Masa kalorymetru mk [kg]: <input type="text" placeholder="kg" name="masa_mk"><br>
         Masa kalorymetru z wodą mk+w [kg]: <input type="text" placeholder="kg" name="masa_mk_w"><br>
-        Masa wody mw [kg]: <input type="text" placeholder="kg" name="masa_wody"><br>
+        Masa ciała stałego mcst [kg]: <input type="text" placeholder="kg" name="masa_cst"><br>
         Temperatura początkowa wody t1 [℃]: <input type="text" placeholder="℃" name="temp_pocz"><br>
         Temperatura ciała stałego t2 [℃]: <input type="text" placeholder="℃" name="temp_cialo"><br>
         Temperatura końcowa wody t3 [℃]: <input type="text" placeholder="℃" name="temp_konc"><br>

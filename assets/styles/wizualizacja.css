@@ -1,0 +1,10 @@
+.container.visual {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.content.visual {
+    width: auto;
+    margin: auto;
+}
