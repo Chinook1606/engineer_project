@@ -1,10 +1,139 @@
-.container.visual {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.container-box.visual {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .content.visual {
-    width: auto;
-    margin: auto;
+  width: auto;
+  margin: auto;
+}
+@media (max-width: 630px) {
+  .bannerLeft h2 {
+    font-size: 3em;
+    padding-top: 0.5em;
+    padding-left: 0.4em;
+    margin: 0;
+    display: block;
+  }
+  .bannerLeft h3 {
+    font-size: 1.5em;
+    margin-top: 2em;
+    padding-left: 1em;
+    width: 11em;
+    display: block;
+  }
+}
+.container-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center children vertically */
+  width: 100%; /* Full width of the viewport */
+}
+
+.red-box.large {
+  background-color: white;
+  height: calc(100% + 15px); /* Example height, adjust as needed */
+  width: 100%; /* Full width of the container-box */
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center children vertically */
+  justify-content: center; /* Center children horizontally */
+  margin-top: 1em;
+}
+
+.red-box.large img {
+  width: 80%; /* Set image width to be 80% of its parent */
+  height: auto; /* Maintain the aspect ratio of the GIF */
+  max-height: 100%; /* Ensure the image doesn't exceed the div's height */
+}
+
+@media (max-width: 1000px) {
+  .red-box.large img {
+    width: 95%; /* Set image width to be 80% of its parent */
+    height: auto; /* Maintain the aspect ratio of the GIF */
+    max-height: 100%; /* Ensure the image doesn't exceed the div's height */
+  }
+}
+
+.steps-title {
+  background-color: rgba(91, 99, 216, 0.2); /* Delikatne fioletowe tło */
+  border-radius: 20px; /* Zaokrąglone rogi */
+  padding: 20px; /* Wewnętrzny odstęp */
+  display: flex; /* Flexbox do wyśrodkowania zawartości */
+  justify-content: center; /* Wyśrodkowanie poziome */
+  align-items: center; /* Wyśrodkowanie pionowe */
+  text-align: center; /* Wyśrodkowanie tekstu, jeśli zajmuje więcej niż jedną linię */
+  width: auto; /* Szerokość dopasowana do zawartości, dopasuj w razie potrzeby */
+  margin: auto; /* Wyśrodkowanie kontenera, jeśli jest częścią większego layoutu */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Delikatny cień dla efektu głębi */
+  margin: 10px;
+  margin-bottom: 2em;
+}
+
+.steps-title h2 {
+  color: #5b63d8; /* Kolor tekstu */
+  font-size: 1.5rem; /* Rozmiar czcionki, dopasuj w razie potrzeby */
+  margin: 0; /* Usunięcie domyślnego marginesu */
+  /* Możesz również tutaj dodać inne style czcionki, które były wcześniej używane */
+}
+
+.boxes {
+  display: flex;
+  height: 150px; /* Wysokość trzech mniejszych divów */
+}
+
+.container-box {
+  text-align: center; /* Center text */
+  margin-bottom: 1.25em;
+}
+
+.list-container-box {
+  display: flex;
+  justify-content: center; /* Center the lists horizontally */
+  align-items: flex-start; /* Align lists to the top */
+  gap: 20px; /* Add some space between the two lists */
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.left-list,
+.right-list {
+  list-style: none; /* Remove default list style */
+  padding: 0;
+  margin: 0; /* Remove default margins */
+  display: inline-block; /* Allows lists to sit next to each other */
+}
+
+.left-list li::before,
+.right-list li::before {
+  content: counter(list-item) ". "; /* Add custom numbering */
+  counter-increment: list-item; /* Increment the counter */
+  color: #5b63d8; /* Color of the numbers and dots */
+  font-weight: bold; /* Bold the numbers */
+  display: inline-block; /* Make the numbers align vertically */
+  width: 2em; /* Give enough width for numbers to align */
+  text-align: right; /* Align numbers to the right within the space */
+  margin-right: 5px; /* Ensure space between the number and the text */
+}
+
+.left-list li,
+.right-list li {
+  margin-bottom: 10px; /* Space between list items */
+  display: flex; /* Use flex to help align numbers */
+  align-items: center; /* Center align list items */
+}
+
+.right-list {
+  counter-reset: list-item 3; /* Start numbering for the right list at 4 */
+}
+
+.left-list {
+  counter-reset: list-item 0; /* Start numbering for the left list at 1 */
+}
+
+.dashed-line {
+  border-top: 2px dashed #cccccc; /* Creates a dashed line */
+  width: 95%; /* Ensures the line spans the width of the container */
+  margin: 1.8em 0 1em 0; /* Adds some vertical spacing above and below the line */
 }
