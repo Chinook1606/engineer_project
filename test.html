@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Kalkulator Sumy</title>
+        <link rel="stylesheet" href="assets/styles/test.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Obliczanie Sumy</h1>
+            <div id="calculationForm">
+                <input type="number" id="a" placeholder="a">
+                <input type="number" id="b" placeholder="b">
+                <input type="number" id="c" placeholder="c">
+                <button id="calculateButton">Oblicz sumę</button>
+            </div>
+
+            <div id="result" class="hidden">
+                <p>Wynik: <span id="sumResult"></span></p>
+                <button id="exportPdfButton">Export to PDF</button>
+            </div>
+
+            <div id="exportForm" class="hidden">
+                <input type="text" id="firstName" placeholder="Imię">
+                <input type="text" id="lastName" placeholder="Nazwisko">
+                <button id="finalExportButton">Export</button>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script src="assets/js/test.js"></script>
+    </body>
+</html>
