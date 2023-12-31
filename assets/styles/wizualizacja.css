@@ -8,22 +8,7 @@
   width: auto;
   margin: auto;
 }
-@media (max-width: 630px) {
-  .bannerLeft h2 {
-    font-size: 3em;
-    padding-top: 0.5em;
-    padding-left: 0.4em;
-    margin: 0;
-    display: block;
-  }
-  .bannerLeft h3 {
-    font-size: 1.5em;
-    margin-top: 2em;
-    padding-left: 1em;
-    width: 11em;
-    display: block;
-  }
-}
+
 .container-box {
   display: flex;
   flex-direction: column;

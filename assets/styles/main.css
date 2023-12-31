@@ -25,22 +25,19 @@ a {
 
 .banner {
   display: flex;
+  font-size: .7em;
   justify-content: center;
   align-items: center;
   background-image: url("../images/main_page/sample_background.jpg");
   overflow: hidden;
-  height: 87.3vh;
+  height: 30vh;
   width: 100%;
   z-index: 2;
   background-size: cover;
 }
 
-.banner.page {
-  height: 30vh;
-}
-
 .bannerOverlay {
-  height: 40vh;
+  height: 30vh;
   width: 100%;
   background: rgba(0, 0, 0, 0.65);
   overflow: hidden;
@@ -49,13 +46,10 @@ a {
   z-index: 1;
 }
 
-.bannerOverlay.page {
-  height: 30vh;
-}
-
 .bannerLeft {
+  text-align: center;
   padding: 2%;
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -69,9 +63,9 @@ a {
   font-size: 3ch;
 }
 .bannerRight {
+  display: none;
   padding: 2%;
   width: 50%;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -82,4 +76,36 @@ a {
 .bannerRight p {
   font-size: 2.5ch;
   line-height: 2.5ch;
+}
+
+
+@media (min-width: 630px) {
+  .bannerLeft {
+    text-align: left;
+  }
+  .bannerRight {
+    display: flex;
+    font-size: .75em;
+  }
+}
+@media (min-width: 720px) {
+  .bannerRight {
+    display: flex;
+    font-size: .8em;
+  }
+}
+@media (min-width: 840px) {
+  .bannerLeft {
+    width: 50%;
+  }
+  .bannerRight {
+    display: flex;
+    font-size: .8em;
+  }
+}
+
+@media (min-width: 840px) {
+  .banner {
+    font-size: 1em;
+  }
 }
