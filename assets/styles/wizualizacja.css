@@ -27,14 +27,14 @@
   margin-top: 1em;
 }
 
-.red-box.large img {
+.red-box.large video {
   width: 80%; /* Set image width to be 80% of its parent */
   height: auto; /* Maintain the aspect ratio of the GIF */
   max-height: 100%; /* Ensure the image doesn't exceed the div's height */
 }
 
 @media (max-width: 1000px) {
-  .red-box.large img {
+  .red-box.large video {
     width: 95%; /* Set image width to be 80% of its parent */
     height: auto; /* Maintain the aspect ratio of the GIF */
     max-height: 100%; /* Ensure the image doesn't exceed the div's height */

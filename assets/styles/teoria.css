@@ -19,7 +19,7 @@
 
 @media (min-width: 1200px) {
     .content {
-        font-size: 16pt;
+        font-size: 15pt;
         width: 50vw;
     }
 }
@@ -27,7 +27,7 @@
 @media (min-width: 1600px) {
     .content {
         width: 40vw;
-        text-align: justify;
+        text-align: left;
         margin-left: 21vw;
     }
 }
@@ -35,24 +35,70 @@
 @media (min-width: 1900px) {
     .content {
         width: 38vw;
-        text-align: justify;
         margin-left: 22vw;
     }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 2000px) {
     .content {
-        width: 38vw;
-        text-align: justify;
-        margin-left: 22vw;
+        width: 37vw;
     }
 }
   
+
 .content img {
-    margin: 40px auto;
+    margin: 40px auto 0px auto;
+}
+
+.content img#energia {
     width: 400px;
+}
+
+.content img#cieplo {
+    width: 500px;
+}
+
+.content img + span.img-sub::before {
+    content: "Źródło: ";
+    font-style: normal;
+}
+
+.content img + span.img-sub {
+    font-size: 12pt;
+    margin: 10px auto 5px auto;
+    font-style: italic;
 }
   
 .content p {
     margin: 12px;
+}
+
+table {
+    width: 75%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+}
+
+td p {
+    margin: 0;
+    padding: 5px 10px;
+}
+
+td {
+    font-size: 0.90em;
+}
+
+.sources {
+    margin-top: 30px;
+    font-size: .7em;
 }

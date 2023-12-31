@@ -23,7 +23,7 @@
           const t3 = document.getElementsByName("temp_konc")[0].value;
 
           let q1 = 0; //nie znamy ciepła właściwego kalorymetru, więc zakładamy 0 - do wyjaśnienia
-          let q2 = (mkw-mk) * 4.18 * (t3-t1);
+          let q2 = (mkw-mk) * 4190 * (t3-t1);
           let q3 = q1 + q2;
           let cc = (q3)/(mcst*(t2-t3));
 
