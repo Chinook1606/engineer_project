@@ -58,6 +58,10 @@
     width: 500px;
 }
 
+.content img#kalorymetr {
+    width: 400px;
+}
+
 .content img + span.img-sub::before {
     content: "Źródło: ";
     font-style: normal;

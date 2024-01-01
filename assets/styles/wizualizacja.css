@@ -73,13 +73,20 @@
   margin-bottom: 1.25em;
 }
 
-.list-container-box {
+.list-container {
   display: flex;
   justify-content: center; /* Center the lists horizontally */
   align-items: flex-start; /* Align lists to the top */
-  gap: 20px; /* Add some space between the two lists */
+  flex-direction: column;
   margin-bottom: 1em;
   margin-top: 1em;
+}
+
+@media (min-width: 1500px) {
+  .list-container {
+    flex-direction: row;
+    gap: 30px;
+  }
 }
 
 .left-list,
@@ -110,7 +117,7 @@
 }
 
 .right-list {
-  counter-reset: list-item 3; /* Start numbering for the right list at 4 */
+  counter-reset: list-item 6; /* Start numbering for the right list at 7 */
 }
 
 .left-list {
