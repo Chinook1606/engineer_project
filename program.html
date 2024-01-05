@@ -16,28 +16,29 @@
       function calculate() {
           event.preventDefault(); 
 
-          const mk = document.getElementsByName("masa_mk")[0].value;
-          const mkw = document.getElementsByName("masa_mk_w")[0].value;
-          const mcst = document.getElementsByName("masa_cst")[0].value; // nie znamy masy własnej obiektu, więc trzeba ją podać, do wyjaśnienia
-          const t1 = document.getElementsByName("temp_pocz")[0].value;
-          const t2 = document.getElementsByName("temp_cialo")[0].value;
-          const t3 = document.getElementsByName("temp_konc")[0].value;
+          const mk = document.getElementsByName("mk")[0];
+          const mkw = document.getElementsByName("mkw")[0];
+          const mcst = document.getElementsByName("mcst")[0]; // nie znamy masy własnej obiektu, więc trzeba ją podać, do wyjaśnienia
 
-          let q1 = mk *  1029 * (t3 - t1);
-          let q2 = (mkw-mk) * 4190 * (t3-t1);
-          let q3 = q1 + q2;
-          let cc = (q3)/(mcst*(t2-t3));
+          const t1 = document.getElementsByName("t1")[0];
+          const t2 = document.getElementsByName("t2")[0];
+          const t3 = document.getElementsByName("t3")[0];
 
-          console.log('Masa kalorymetru mk:', mk);
-          console.log('Masa kalorymetru z wodą mk+w:', mkw);
-          console.log('Masa wody mw:', mcst);
-          console.log('Temperatura początkowa wody t1:', t1);
-          console.log('Temperatura ciała stałego t2:', t2);
-          console.log('Temperatura końcowa wody t3:', t3);
-          console.log("Ciepło pobrane przez kalorymetr: " , q1);
-          console.log("Ciepło pobrane przez wodę w kalorymetrze: ", q2);
-          console.log("Ciepło oddane przez ciało stałe: ", q3);
-          console.log("Ciepło właściwe ciała stałego", cc);
+          const q1 = document.getElementsByName("q1")[0];
+          const q2 = document.getElementsByName("q2")[0];
+          const q3 = document.getElementsByName("q3")[0];
+
+          const cwal = document.getElementsByName("cwal")[0];
+          cwal.value = 1029;
+          const cwh2o = document.getElementsByName("cwh2o")[0];
+          cwh2o.value = 4190;
+          const cwst = document.getElementsByName("cwst")[0];
+
+          q1.value = parseInt(mk.value) *  parseInt(cwal.value) * (parseInt(t3.value) - parseInt(t1.value));
+          q2.value = (parseInt(mkw.value)-parseInt(mk.value)) * parseInt(cwh2o.value) * (parseInt(t3.value)-parseInt(t1.value));
+          q3.value = parseInt(q1.value) + parseInt(q2.value);
+          cwst.value = (parseInt(q3.value))/(parseInt(mcst.value)*(parseInt(t2.value)-parseInt(t3.value)));
+
       }
       </script>
   </head>
@@ -65,15 +66,15 @@
           <div class="bottom">
             <div class="bottom-cont">
               <div>Kalorymetru \(m_k\)</div>
-              <input type="text" placeholder="kg" name="masa_mk">
+              <input type="text" placeholder="kg" name="mk">
             </div>
             <div class="bottom-cont">
               <div>Kalorymetru z wodą \(m_{k+w}\)</div>
-              <input type="text" placeholder="kg" name="masa_mk_w">
+              <input type="text" placeholder="kg" name="mkw">
             </div>
             <div class="bottom-cont">
               <div>Ciała stałego \(m_{cst}\)</div>
-              <input type="text" placeholder="kg" name="masa_cst">
+              <input type="text" placeholder="kg" name="mcst">
             </div>
           </div>
         </div>
@@ -83,15 +84,15 @@
           <div class="bottom">
             <div class="bottom-cont">
               <div>Początkowa wody \(t_1\)</div>
-              <input type="text" placeholder="℃" name="temp_pocz">
+              <input type="text" placeholder="℃" name="t1">
             </div>
             <div class="bottom-cont">
               <div>Ciała stałego \(t_2\)</div>
-              <input type="text" placeholder="℃" name="temp_cialo">
+              <input type="text" placeholder="℃" name="t2">
             </div>
             <div class="bottom-cont">
               <div>Końcowa wody \(t_3\)</div>
-              <input type="text" placeholder="℃" name="temp_konc">
+              <input type="text" placeholder="℃" name="t3">
             </div>
           </div>
         </div>
@@ -103,15 +104,15 @@
           <div class="bottom">
             <div class="bottom-cont">
               <div>Pobrane przez kalorymetr \(Q_1\)</div>
-              <input disabled type="text" placeholder="0J">
+              <input disabled type="text" placeholder="0 J" name="q1">
             </div>
             <div class="bottom-cont">
               <div>Pobrane przez wodę \(Q_2\)</div>
-              <input disabled type="text" placeholder="0J">
+              <input disabled type="text" placeholder="0 J" name="q2">
             </div>
             <div class="bottom-cont">
               <div>Oddane przez ciało stałe \(Q_3\)</div>
-              <input disabled type="text" placeholder="0J">
+              <input disabled type="text" placeholder="0 J" name="q3">
             </div>
           </div>
         </div>  
@@ -121,15 +122,15 @@
           <div class="bottom">
             <div class="bottom-cont">
               <div>Kalorymetru \(c_{wAl}\)</div>
-              <input disabled type="text" placeholder="0J/kgK">
+              <input disabled type="text" placeholder="1029 J/kgK" name="cwal">
             </div>
             <div class="bottom-cont">
               <div>Wody \(c_{wH2O}\)</div>
-              <input disabled type="text" placeholder="0J/kgK">
+              <input disabled type="text" placeholder="4190 J/kgK" name="cwh2o">
             </div>
             <div class="bottom-cont">
               <div>Ciała stałego \(c_{wcst}\)</div>
-              <input disabled type="text" placeholder="0J/kgK">
+              <input disabled type="text" placeholder="0 J/kgK" name="cwst">
             </div>
           </div>
         </div>  
