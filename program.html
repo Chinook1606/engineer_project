@@ -34,10 +34,10 @@
           cwh2o.value = 4190;
           const cwst = document.getElementsByName("cwst")[0];
 
-          q1.value = parseInt(mk.value) *  parseInt(cwal.value) * (parseInt(t3.value) - parseInt(t1.value));
-          q2.value = (parseInt(mkw.value)-parseInt(mk.value)) * parseInt(cwh2o.value) * (parseInt(t3.value)-parseInt(t1.value));
-          q3.value = parseInt(q1.value) + parseInt(q2.value);
-          cwst.value = (parseInt(q3.value))/(parseInt(mcst.value)*(parseInt(t2.value)-parseInt(t3.value)));
+          q1.value = parseFloat(mk.value) *  parseFloat(cwal.value) * (parseFloat(t3.value) - parseFloat(t1.value));
+          q2.value = (parseFloat(mkw.value)-parseFloat(mk.value)) * parseFloat(cwh2o.value) * (parseFloat(t3.value)-parseFloat(t1.value));
+          q3.value = parseFloat(q1.value) + parseFloat(q2.value);
+          cwst.value = (parseFloat(q3.value))/(parseFloat(mcst.value)*(parseFloat(t2.value)-parseFloat(t3.value)));
 
       }
       </script>
