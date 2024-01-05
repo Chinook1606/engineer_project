@@ -5,6 +5,10 @@
         <title>Kalkulator Sumy</title>
         <link rel="stylesheet" href="assets/styles/main.css">
         <link rel="stylesheet" href="assets/styles/test.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+
     </head>
     <body>
         <div class="container">
@@ -24,10 +28,12 @@
             <div id="exportForm" class="hidden">
                 <input type="text" id="firstName" placeholder="Imię">
                 <input type="text" id="lastName" placeholder="Nazwisko">
+                <!-- Pole tekstowe na opis -->
+                <textarea id="description" placeholder="Opis" rows="4"></textarea>
                 <button id="finalExportButton">Export</button>
             </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
         <script src="assets/js/test.js"></script>
+
     </body>
 </html>

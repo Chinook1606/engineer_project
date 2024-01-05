@@ -30,6 +30,7 @@ document
     const sum = document.getElementById("sumResult").textContent;
     const firstName = document.getElementById("firstName").value;
     const lastName = document.getElementById("lastName").value;
+    const description = document.getElementById("description").value;
 
     // Utwórz PDF
     const { jsPDF } = window.jspdf;
@@ -39,8 +40,8 @@ document
     doc.setFontSize(32);
     doc.setFont("times", "bold");
     centeredText(doc, "UNIWERSYTET", 45);
-    centeredText(doc, "KOMISJI EDUKACJI NARODOWEJ", 60);
-    centeredText(doc, "W KRAKOWIE", 75);
+    centeredText(doc, "KOMISJI  EDUKACJI  NARODOWEJ", 60);
+    centeredText(doc, "W  KRAKOWIE", 75);
     doc.setFont("times", "normal");
     doc.setFontSize(16);
     centeredText(doc, "Podstawy modelowania i symulacji - Laboratorium", 95);
@@ -80,6 +81,36 @@ document
     centeredText(doc, `Suma: ${sum}`, 40);
     centeredText(doc, `Imię: ${firstName}`, 50);
     centeredText(doc, `Nazwisko: ${lastName}`, 60);
+
+    doc.autoTable({
+      startY: 70,
+      head: [["Kolumna 1", "Kolumna 2", "Kolumna 3"]],
+      body: [
+        ["Dane 1.1", "Dane 1.2", "Dane 1.3"],
+        ["Dane 2.1", "Dane 2.2", "Dane 2.3"],
+      ],
+    });
+
+    // Dodaj trzecią stronę z opisem
+    doc.addPage();
+
+    // Ustawienia czcionki dla opisu
+    doc.setFont("times", "normal");
+    doc.setFontSize(12);
+
+    // Ustawienie marginesów
+    const margins = {
+      top: 20,
+      bottom: 20,
+      left: 20,
+      width: 170,
+    };
+
+    // Dodaj tekst opisu z zawijaniem do nowej linii
+    doc.text(description, margins.left, margins.top, {
+      maxWidth: margins.width,
+      align: "justify",
+    });
 
     // Zapisz PDF
     doc.save("raport.pdf");

@@ -11,119 +11,182 @@
     <link rel="stylesheet" href="assets/templates/footer/footer.css" />
     <script defer src="assets/js/templates-importer.js"></script>
     <script src="assets/templates/navbar/navbar.js"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <body>
-  
-  <div class="container">
-    <div id="navbar-placeholder"></div>
 
-    <div class="banner page">
-      <div class="bannerOverlay page"></div>
-      <section class="bannerLeft">
+    <div class="container">
+      <div id="navbar-placeholder"></div>
+
+      <div class="banner page">
+        <div class="bannerOverlay page"></div>
+        <section class="bannerLeft">
           <h2>Teoria</h2>
           <h3>Dowiedz się więcej na temat ciepła właściwego oraz jego pomiaru</h3>
-      </section>
-      <section class="bannerRight">
-          <p>Przed pomiarem dobrze jest zaznajomić się z teorią. Na tej stronie dowiesz się więcej na temat ciepła właściwego, temperatury, energii wewnętrznej oraz pojemności cieplnej. </p>
-      </section>
-    </div>
-  
-  <div class="container">
-    <section class="content">
-      <h2>Energia wewnętrzna i temperatura</h2>
-      <p>Aby lepiej zrozumieć badane wielkości, pochylmy się najpierw nad energią wewnętrzną. Jest ona jednym z kluczowych pojęć w termodynamice. Jest to suma całkowitej energii zawartej w systemie, która obejmuje zarówno energię <b>kinetyczną</b> cząsteczek (związaną z ich ruchem), jak i energię <b>potencjalną</b> wynikającą z oddziaływań między cząsteczkami. Jednostką energii wewnętrznej jest <b>dżul (J)</b>.</p>
-      <p><b>Energia potencjalna</b> wynika z oddziaływań między cząsteczkami. W ciałach stałych, gdzie cząsteczki są blisko siebie, energia potencjalna może być znacząca ze względu na silne oddziaływania międzycząsteczkowe. W gazach, gdzie cząsteczki są daleko od siebie, energia potencjalna jest zerowa.</p>
-      <p><b>Energia kinetyczna</b> jest związana z ruchem cząsteczek. W gazach, płynach i ciałach stałych cząsteczki są w ciągłym ruchu, a średnia energia kinetyczna cząsteczek w substancji to <b>temperatura</b>. Wyższa temperatura oznacza, że średnia energia kinetyczna cząsteczek jest większa. Energię kinetyczną większą od zera mają cząsteczki wszystkich ciał o temperaturze wyższej niż 0K.</p>
-      <p>Zmiana energii wewnętrznej ciała może wynikać ze zmian w sumarycznej energii kinetycznej jego cząsteczek, co wpływa na średnią energię kinetyczną na pojedynczą cząsteczkę. To z kolei prowadzi do zmiany temperatury ciała. W przypadku przemian fazowych, takich jak topnienie, wrzenie, czy krzepnięcie, które odbywają się przy niezmiennej temperaturze, dochodzi do zmiany całkowitej energii potencjalnej cząsteczek, podczas gdy ich całkowita energia kinetyczna pozostaje bez zmian.</p>
-      <img src="assets/images/teoria/energia-wewnetrzna-czasteczki-m.png.webp" alt="energia-wewnetrzna" id="energia">
-      <span class="img-sub">https://leszekbober.pl/fizyka/przemiany-energii/energia-wewnetrzna/</span>
-      <h2>Ciepło</h2>
-      <p>Ciepło, w kontekście termodynamiki, jest formą energii przenoszonej między systemami lub ich częściami w wyniku różnicy temperatur. <b>Ciepło jest transferem energii termicznej z jednego obiektu do drugiego</b> lub z jednej części systemu do innej, zawsze w wyniku różnicy temperatur. Należy pamiętać, że ciepło jest procesem przepływu energii, a nie stanem (jak energia wewnętrzna czy temperatura).</p>
-      <p>Zgodnie z drugim prawem termodynamiki, ciepło naturalnie przepływa od obiektu o wyższej temperaturze do obiektu o niższej temperaturze, dopóki nie zostanie osiągnięta równowaga termiczna.</p>
-      <p>Ciepło jest mierzone w tych samych jednostkach co inne formy energii, najczęściej w <b>dżulach (J)</b> w systemie metrycznym lub w kaloriach (cal) w starszych systemach miar.</p>
-      <p>Ciepło pobrane przez ciało o masie \(m\) podczas zwiększania temperatury o \(\Delta t\) o <b>cieple właściwym</b> \(c_w\) wyraża się wzorem:</p>
-      <div style="margin: auto;">$$Q = m \cdot c_w \cdot \Delta t = m \cdot c_w (t_2 - t_1)$$</div>
-      <p>gdzie \(t_2\) to temperatura końcowa a \(t_1\) to temperatura początkowa</p>
-      <p>Ciepło może być przenoszone na trzy główne sposoby: przez <b>przewodzenie</b> (bezpośredni transfer energii między substancjami będącymi w kontakcie), przez <b>konwekcję</b> (przenoszenie ciepła przez ruch masy, np. w cieczach i gazach) i przez <b>promieniowanie</b> (transfer energii za pomocą fal elektromagnetycznych, np. światło słoneczne).</p>
-      <img src="assets/images/teoria/przewodzenie_konwekcja_radiacja.png" id="cieplo" alt="" srcset="">
-      <span class="img-sub">https://naukanatalerzu.pl/sposoby-przenoszenia-energii/</span>
-      <h2>Ciepło właściwe</h2>
-      <p>Ciepło właściwe to miara zdolności substancji do magazynowania ciepła. Jest to ilość ciepła potrzebna do podniesienia temperatury jednostki masy danej substancji o jeden stopień (na przykład o 1 stopień Celsjusza lub 1 kelwin).</p>
-      <p>Ciepło właściwe jest zazwyczaj wyrażane w jednostkach takich jak joule na kilogram na kelwin (\(J \over kg \cdot K\)) lub kalorie na gram na stopień Celsjusza (\(cal \over g \cdot ^{\circ} C\)).</p>
-      <p>Ciepło właściwe obliczamy dzieląc ciepło \(c_w\) przez iloczyn masy \(m\) podgrzewanego ciała i różnicy temperatur \(\Delta T\).</p>
-      <div style="margin: auto;">$$c_w = \frac{Q} {m\Delta T}$$</div>
-      <p>Różne substancje mają różne ciepła właściwe. Na przykład, woda ma wysokie ciepło właściwe, co oznacza, że wymaga dużo energii, aby zmienić swoją temperaturę. To właśnie dlatego woda jest efektywnym środowiskiem do przechowywania ciepła lub chłodzenia.</p>
-      <table border="1">
-        <tr>
-          <th>Substancja</th>
-          <th>Ciepło właściwe (\(J \over kg \cdot K\))</th>
-        </tr>
-        <tr>
-          <td>
-            <p>Cyna</p>
-            <p>Cynk</p>
-            <p>Glin</p>
-            <p>Lód (0°C)</p>
-            <p>Miedź</p>
-            <p>Ołów</p>
-            <p>Żelazo</p>
-            <p>Gliceryna</p>
-            <p>Rtęć</p>
-            <p>Woda</p>
-            <p>Powietrze</p>
-            <p>Tlen</p>
-          </td>
-          <td>
-            <p>222</p>
-            <p>389</p>
-            <p>902</p>
-            <p>2100</p>
-            <p>385</p>
-            <p>128</p>
-            <p>452</p>
-            <p>2430</p>
-            <p>139</p>
-            <p>4190</p>
-            <p>1005</p>
-            <p>916</p>
-          </td>
-        </tr>
-      </table>
-      <p>W niektórych przypadkach, ciepło właściwe substancji może zmieniać się w zależności od temperatury i ciśnienia. Dla wielu substancji zmiany te są jednak zazwyczaj niewielkie w typowych zakresach temperatur i ciśnień.</p>
-      <p>Podczas zmiany stanu skupienia (na przykład topnienia lodu czy parowania wody) ciepło właściwe może ulec zmianie, ponieważ procesy te wymagają energii do przełamania lub tworzenia wiązań międzycząsteczkowych.</p>
-      <p>Ciepło właściwe jest więc miernikiem, jak bardzo "odporna" na zmiany temperatury jest dana substancja, co ma szerokie zastosowanie zarówno w nauce, jak i w codziennym życiu.</p>
-      <h2>Zasada bilansu cieplnego</h2>
-      <p>W układzie izolowanym, czyli takim, który nie wymienia ciepła z otoczeniem, ciepło pobrane przez jedno ciało jest równe ciepłu oddanemu przez to ciało. </p>
-      <div style="margin: auto;">$$Q_{pobrane} = Q_{oddane}$$</div>
-      <img src="assets/images/teoria/bilans.svg" id="bilans" alt="" srcset="">
-      <span class="img-sub">https://zpe.gov.pl/a/przeczytaj/D3Cad2Eje</span>
-      <p>Absorpcja ciepła przez substancję może powodować wzrost jej temperatury lub zmianę stanu skupienia, jak w topnieniu lub parowaniu. Z kolei uwalnianie ciepła towarzyszy procesom takim jak krzepnięcie i skraplanie, mogąc również obniżyć temperaturę substancji.</p>
-      <h2>Pojemność cieplna</h2>
-      <p>Pojemność cieplna obiektu to ilość ciepła (energii), którą trzeba dostarczyć, aby podnieść jego temperaturę o jeden stopień (na przykład o 1 stopień Celsjusza lub 1 kelwin). Jest to miara odporności obiektu na zmiany temperatury w odpowiedzi na dodanie lub usunięcie ciepła.</p>
-      <p>Pojemność cieplna jest wyrażana w jednostkach takich jak joule na kelwin (J/K) lub kalorie na stopień Celsjusza (cal/°C).</p>
-      <p>Pojemność cieplna jest związana z ciepłem właściwym substancji, ale nie są to te same pojęcia. Ciepło właściwe jest miarą zdolności jednostki masy substancji do magazynowania ciepła, podczas gdy pojemność cieplna odnosi się do konkretnej ilości tej substancji.</p>
-      <p>Aby obliczyć pojemność cieplną \(C\) obiektu, mnożymy ciepło właściwe \(c_w\) materiału przez masę \(m\) obiektu:</p>
-      <div style="margin: auto;">$$C = c_w \cdot m$$</div>
-      <h2>Kalorymetr</h2>
-      <p>Do pomiaru ciepła wydzielanego lub pobieranego podczas procesów chemicznych i fizycznych używa się kalorymetru.</p>
-      <img src="assets/images/teoria/kalorymetr.png" id="kalorymetr" alt="" srcset="">
-      <span class="img-sub">http://dydaktyka.fizyka.szc.pl/pdf/pdf_232.pdf</span>
-      <p>Kalorymetr składa się z dwóch pojemników aluminiowych, z których jeden jest mniejszy, a drugi większy. 
-        Mniejsze naczynie, będące właściwym kalorymetrem (3), umieszcza się na drewnianym dystansie (2) wewnątrz większego (1), zwanego płaszczem kalorymetru. Urządzenie to jest zakryte aluminiową pokrywką z szyjką na środku (4), w której umieszcza się termometr (5) zabezpieczony korkiem, a także pręt mieszadła (6) przechodzący przez dodatkowy otwór w pokrywie. Tekturowy płaszcz (7) izoluje kalorymetr, minimalizując wymianę energii cieplnej z otoczeniem. Dla precyzyjnych pomiarów, termometr powinien wskazywać temperaturę z dokładnością do 0,1 °C, a ciecz w kalorymetrze jest mieszana, aby zapewnić równomierny rozkład ciepła.</p>
-      <div class="sources"><h2>Źródła:</h2>
-        <p>https://www.medianauka.pl/energia-wewnetrzna</p>
-        <p>http://cmf.p.lodz.pl/iowczarek/materialy/termodynamika</p>
-        <p>https://leszekbober.pl/</p>
-        <p>https://naukanatalerzu.pl/sposoby-przenoszenia-energii</p>
-        <p>https://zpe.gov.pl</p>
-        <p>https://www.locja.pl/haslo/pojemnosc-cieplna,523</p>
-        <p>http://dydaktyka.fizyka.szc.pl/pdf/pdf_232.pdf</p>
+        </section>
+        <section class="bannerRight">
+          <p>Przed pomiarem dobrze jest zaznajomić się z teorią. Na tej stronie dowiesz się więcej
+            na temat ciepła właściwego, temperatury, energii wewnętrznej oraz pojemności cieplnej.
+          </p>
+        </section>
       </div>
-    </section>
-  </div>
-  
-  <div id="footer-placeholder"></div>
-  </div>
+
+      <div class="container">
+        <section class="content">
+          <h2>Energia wewnętrzna i temperatura</h2>
+          <p>Aby lepiej zrozumieć badane wielkości, pochylmy się najpierw nad energią wewnętrzną.
+            Jest ona jednym z kluczowych pojęć w termodynamice. Jest to suma całkowitej energii
+            zawartej w systemie, która obejmuje zarówno energię <b>kinetyczną</b> cząsteczek
+            (związaną z ich ruchem), jak i energię <b>potencjalną</b> wynikającą z oddziaływań
+            między cząsteczkami. Jednostką energii wewnętrznej jest <b>dżul (J)</b>.</p>
+          <p><b>Energia potencjalna</b> wynika z oddziaływań między cząsteczkami. W ciałach stałych,
+            gdzie cząsteczki są blisko siebie, energia potencjalna może być znacząca ze względu na
+            silne oddziaływania międzycząsteczkowe. W gazach, gdzie cząsteczki są daleko od siebie,
+            energia potencjalna jest zerowa.</p>
+          <p><b>Energia kinetyczna</b> jest związana z ruchem cząsteczek. W gazach, płynach i
+            ciałach stałych cząsteczki są w ciągłym ruchu, a średnia energia kinetyczna cząsteczek w
+            substancji to <b>temperatura</b>. Wyższa temperatura oznacza, że średnia energia
+            kinetyczna cząsteczek jest większa. Energię kinetyczną większą od zera mają cząsteczki
+            wszystkich ciał o temperaturze wyższej niż 0K.</p>
+          <p>Zmiana energii wewnętrznej ciała może wynikać ze zmian w sumarycznej energii
+            kinetycznej jego cząsteczek, co wpływa na średnią energię kinetyczną na pojedynczą
+            cząsteczkę. To z kolei prowadzi do zmiany temperatury ciała. W przypadku przemian
+            fazowych, takich jak topnienie, wrzenie, czy krzepnięcie, które odbywają się przy
+            niezmiennej temperaturze, dochodzi do zmiany całkowitej energii potencjalnej cząsteczek,
+            podczas gdy ich całkowita energia kinetyczna pozostaje bez zmian.</p>
+          <img src="assets/images/teoria/energia-wewnetrzna-czasteczki-m.png.webp"
+            alt="energia-wewnetrzna" id="energia">
+          <span class="img-sub">https://leszekbober.pl/fizyka/przemiany-energii/energia-wewnetrzna/</span>
+          <h2>Ciepło</h2>
+          <p>Ciepło, w kontekście termodynamiki, jest formą energii przenoszonej między systemami
+            lub ich częściami w wyniku różnicy temperatur. <b>Ciepło jest transferem energii
+              termicznej z jednego obiektu do drugiego</b> lub z jednej części systemu do innej,
+            zawsze w wyniku różnicy temperatur. Należy pamiętać, że ciepło jest procesem przepływu
+            energii, a nie stanem (jak energia wewnętrzna czy temperatura).</p>
+          <p>Zgodnie z drugim prawem termodynamiki, ciepło naturalnie przepływa od obiektu o wyższej
+            temperaturze do obiektu o niższej temperaturze, dopóki nie zostanie osiągnięta równowaga
+            termiczna.</p>
+          <p>Ciepło jest mierzone w tych samych jednostkach co inne formy energii, najczęściej w <b>dżulach
+              (J)</b> w systemie metrycznym lub w kaloriach (cal) w starszych systemach miar.</p>
+          <p>Ciepło pobrane przez ciało o masie \(m\) podczas zwiększania temperatury o \(\Delta t\)
+            o <b>cieple właściwym</b> \(c_w\) wyraża się wzorem:</p>
+          <div style="margin: auto;">$$Q = m \cdot c_w \cdot \Delta t = m \cdot c_w (t_2 - t_1)$$</div>
+          <p>gdzie \(t_2\) to temperatura końcowa a \(t_1\) to temperatura początkowa</p>
+          <p>Ciepło może być przenoszone na trzy główne sposoby: przez <b>przewodzenie</b>
+            (bezpośredni transfer energii między substancjami będącymi w kontakcie), przez <b>konwekcję</b>
+            (przenoszenie ciepła przez ruch masy, np. w cieczach i gazach) i przez <b>promieniowanie</b>
+            (transfer energii za pomocą fal elektromagnetycznych, np. światło słoneczne).</p>
+          <img src="assets/images/teoria/przewodzenie_konwekcja_radiacja.png" id="cieplo" alt srcset>
+          <span class="img-sub">https://naukanatalerzu.pl/sposoby-przenoszenia-energii/</span>
+          <h2>Ciepło właściwe</h2>
+          <p>Ciepło właściwe to miara zdolności substancji do magazynowania ciepła. Jest to ilość
+            ciepła potrzebna do podniesienia temperatury jednostki masy danej substancji o jeden
+            stopień (na przykład o 1 stopień Celsjusza lub 1 kelwin).</p>
+          <p>Ciepło właściwe jest zazwyczaj wyrażane w jednostkach takich jak joule na kilogram na
+            kelwin (\(J \over kg \cdot K\)) lub kalorie na gram na stopień Celsjusza (\(cal \over g
+            \cdot ^{\circ} C\)).</p>
+          <p>Ciepło właściwe obliczamy dzieląc ciepło \(c_w\) przez iloczyn masy \(m\) podgrzewanego
+            ciała i różnicy temperatur \(\Delta T\).</p>
+          <div style="margin: auto;">$$c_w = \frac{Q} {m\Delta T}$$</div>
+          <p>Różne substancje mają różne ciepła właściwe. Na przykład, woda ma wysokie ciepło
+            właściwe, co oznacza, że wymaga dużo energii, aby zmienić swoją temperaturę. To właśnie
+            dlatego woda jest efektywnym środowiskiem do przechowywania ciepła lub chłodzenia.</p>
+          <table border="1">
+            <tr>
+              <th>Substancja</th>
+              <th>Ciepło właściwe (\(J \over kg \cdot K\))</th>
+            </tr>
+            <tr>
+              <td>
+                <p>Cyna</p>
+                <p>Cynk</p>
+                <p>Glin</p>
+                <p>Lód (0°C)</p>
+                <p>Miedź</p>
+                <p>Ołów</p>
+                <p>Żelazo</p>
+                <p>Gliceryna</p>
+                <p>Rtęć</p>
+                <p>Woda</p>
+                <p>Powietrze</p>
+                <p>Tlen</p>
+              </td>
+              <td>
+                <p>222</p>
+                <p>389</p>
+                <p>902</p>
+                <p>2100</p>
+                <p>385</p>
+                <p>128</p>
+                <p>452</p>
+                <p>2430</p>
+                <p>139</p>
+                <p>4190</p>
+                <p>1005</p>
+                <p>916</p>
+              </td>
+            </tr>
+          </table>
+          <p>W niektórych przypadkach, ciepło właściwe substancji może zmieniać się w zależności od
+            temperatury i ciśnienia. Dla wielu substancji zmiany te są jednak zazwyczaj niewielkie w
+            typowych zakresach temperatur i ciśnień.</p>
+          <p>Podczas zmiany stanu skupienia (na przykład topnienia lodu czy parowania wody) ciepło
+            właściwe może ulec zmianie, ponieważ procesy te wymagają energii do przełamania lub
+            tworzenia wiązań międzycząsteczkowych.</p>
+          <p>Ciepło właściwe jest więc miernikiem, jak bardzo "odporna" na zmiany temperatury jest
+            dana substancja, co ma szerokie zastosowanie zarówno w nauce, jak i w codziennym życiu.</p>
+          <h2>Zasada bilansu cieplnego</h2>
+          <p>W układzie izolowanym, czyli takim, który nie wymienia ciepła z otoczeniem, ciepło
+            pobrane przez jedno ciało jest równe ciepłu oddanemu przez to ciało. </p>
+          <div style="margin: auto;">$$Q_{pobrane} = Q_{oddane}$$</div>
+          <img src="assets/images/teoria/bilans.svg" id="bilans" alt srcset>
+          <span class="img-sub">https://zpe.gov.pl/a/przeczytaj/D3Cad2Eje</span>
+          <p>Absorpcja ciepła przez substancję może powodować wzrost jej temperatury lub zmianę
+            stanu skupienia, jak w topnieniu lub parowaniu. Z kolei uwalnianie ciepła towarzyszy
+            procesom takim jak krzepnięcie i skraplanie, mogąc również obniżyć temperaturę
+            substancji.</p>
+          <h2>Pojemność cieplna</h2>
+          <p>Pojemność cieplna obiektu to ilość ciepła (energii), którą trzeba dostarczyć, aby
+            podnieść jego temperaturę o jeden stopień (na przykład o 1 stopień Celsjusza lub 1
+            kelwin). Jest to miara odporności obiektu na zmiany temperatury w odpowiedzi na dodanie
+            lub usunięcie ciepła.</p>
+          <p>Pojemność cieplna jest wyrażana w jednostkach takich jak joule na kelwin (J/K) lub
+            kalorie na stopień Celsjusza (cal/°C).</p>
+          <p>Pojemność cieplna jest związana z ciepłem właściwym substancji, ale nie są to te same
+            pojęcia. Ciepło właściwe jest miarą zdolności jednostki masy substancji do magazynowania
+            ciepła, podczas gdy pojemność cieplna odnosi się do konkretnej ilości tej substancji.</p>
+          <p>Aby obliczyć pojemność cieplną \(C\) obiektu, mnożymy ciepło właściwe \(c_w\) materiału
+            przez masę \(m\) obiektu:</p>
+          <div style="margin: auto;">$$C = c_w \cdot m$$</div>
+          <h2>Kalorymetr</h2>
+          <p>Do pomiaru ciepła wydzielanego lub pobieranego podczas procesów chemicznych i
+            fizycznych używa się kalorymetru.</p>
+          <img src="assets/images/teoria/kalorymetr.png" id="kalorymetr" alt srcset>
+          <span class="img-sub">http://dydaktyka.fizyka.szc.pl/pdf/pdf_232.pdf</span>
+          <p>Kalorymetr składa się z dwóch pojemników aluminiowych, z których jeden jest mniejszy, a
+            drugi większy.
+            Mniejsze naczynie, będące właściwym kalorymetrem (3), umieszcza się na drewnianym
+            dystansie (2) wewnątrz większego (1), zwanego płaszczem kalorymetru. Urządzenie to jest
+            zakryte aluminiową pokrywką z szyjką na środku (4), w której umieszcza się termometr (5)
+            zabezpieczony korkiem, a także pręt mieszadła (6) przechodzący przez dodatkowy otwór w
+            pokrywie. Tekturowy płaszcz (7) izoluje kalorymetr, minimalizując wymianę energii
+            cieplnej z otoczeniem. Dla precyzyjnych pomiarów, termometr powinien wskazywać
+            temperaturę z dokładnością do 0,1 °C, a ciecz w kalorymetrze jest mieszana, aby zapewnić
+            równomierny rozkład ciepła.</p>
+          <div class="sources"><h2>Źródła:</h2>
+            <p>https://www.medianauka.pl/energia-wewnetrzna</p>
+            <p>http://cmf.p.lodz.pl/iowczarek/materialy/termodynamika</p>
+            <p>https://leszekbober.pl/</p>
+            <p>https://naukanatalerzu.pl/sposoby-przenoszenia-energii</p>
+            <p>https://zpe.gov.pl</p>
+            <p>https://www.locja.pl/haslo/pojemnosc-cieplna,523</p>
+            <p>http://dydaktyka.fizyka.szc.pl/pdf/pdf_232.pdf</p>
+          </div>
+        </section>
+      </div>
+
+      <div id="footer-placeholder"></div>
+    </div>
   </body>
 </html>
