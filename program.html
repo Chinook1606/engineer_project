@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/templates/footer/footer.css" />
     <script defer src="assets/js/templates-importer.js"></script>
     <script src="assets/templates/navbar/navbar.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
       function calculate() {
           event.preventDefault(); 
@@ -22,7 +23,7 @@
           const t2 = document.getElementsByName("temp_cialo")[0].value;
           const t3 = document.getElementsByName("temp_konc")[0].value;
 
-          let q1 = mk *  896 * (t3 - t1); //nie znamy ciepła właściwego kalorymetru, więc zakładamy 896 - do wyjaśnienia
+          let q1 = mk *  1029 * (t3 - t1);
           let q2 = (mkw-mk) * 4190 * (t3-t1);
           let q3 = q1 + q2;
           let cc = (q3)/(mcst*(t2-t3));
@@ -59,13 +60,80 @@
   <div class="container">
     <section class="content">
       <form onsubmit="return calculate();">
-        Masa kalorymetru mk [kg]: <input type="text" placeholder="kg" name="masa_mk"><br>
-        Masa kalorymetru z wodą mk+w [kg]: <input type="text" placeholder="kg" name="masa_mk_w"><br>
-        Masa ciała stałego mcst [kg]: <input type="text" placeholder="kg" name="masa_cst"><br>
-        Temperatura początkowa wody t1 [℃]: <input type="text" placeholder="℃" name="temp_pocz"><br>
-        Temperatura ciała stałego t2 [℃]: <input type="text" placeholder="℃" name="temp_cialo"><br>
-        Temperatura końcowa wody t3 [℃]: <input type="text" placeholder="℃" name="temp_konc"><br>
-        <input class="arrowBox" type="submit" value="Oblicz">
+        <div class="form-div">
+          <div class="top">Masa</div>
+          <div class="bottom">
+            <div class="bottom-cont">
+              <div>Kalorymetru \(m_k\)</div>
+              <input type="text" placeholder="kg" name="masa_mk">
+            </div>
+            <div class="bottom-cont">
+              <div>Kalorymetru z wodą \(m_{k+w}\)</div>
+              <input type="text" placeholder="kg" name="masa_mk_w">
+            </div>
+            <div class="bottom-cont">
+              <div>Ciała stałego \(m_{cst}\)</div>
+              <input type="text" placeholder="kg" name="masa_cst">
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-div">
+          <div class="top">Temperatura</div>
+          <div class="bottom">
+            <div class="bottom-cont">
+              <div>Początkowa wody \(t_1\)</div>
+              <input type="text" placeholder="℃" name="temp_pocz">
+            </div>
+            <div class="bottom-cont">
+              <div>Ciała stałego \(t_2\)</div>
+              <input type="text" placeholder="℃" name="temp_cialo">
+            </div>
+            <div class="bottom-cont">
+              <div>Końcowa wody \(t_3\)</div>
+              <input type="text" placeholder="℃" name="temp_konc">
+            </div>
+          </div>
+        </div>
+
+        <input class="submit-btn" type="submit" value="Oblicz">
+
+        <div class="form-div">
+          <div class="top">Ciepło</div>
+          <div class="bottom">
+            <div class="bottom-cont">
+              <div>Pobrane przez kalorymetr \(Q_1\)</div>
+              <input disabled type="text" placeholder="0J">
+            </div>
+            <div class="bottom-cont">
+              <div>Pobrane przez wodę \(Q_2\)</div>
+              <input disabled type="text" placeholder="0J">
+            </div>
+            <div class="bottom-cont">
+              <div>Oddane przez ciało stałe \(Q_3\)</div>
+              <input disabled type="text" placeholder="0J">
+            </div>
+          </div>
+        </div>  
+
+        <div class="form-div">
+          <div class="top">Ciepło właściwe</div>
+          <div class="bottom">
+            <div class="bottom-cont">
+              <div>Kalorymetru \(c_{wAl}\)</div>
+              <input disabled type="text" placeholder="0J/kgK">
+            </div>
+            <div class="bottom-cont">
+              <div>Wody \(c_{wH2O}\)</div>
+              <input disabled type="text" placeholder="0J/kgK">
+            </div>
+            <div class="bottom-cont">
+              <div>Ciała stałego \(c_{wcst}\)</div>
+              <input disabled type="text" placeholder="0J/kgK">
+            </div>
+          </div>
+        </div>  
+
       </form>
     </section>
   </div>
