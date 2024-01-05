@@ -97,7 +97,7 @@
     height: auto;
     overflow: hidden;
     transition: max-height 0.3s ease, box-shadow 0.3s ease;
-    top: 5.625em;
+    top: 4.65em;
     left: 0;
     max-height: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lekki cień dla głębi */

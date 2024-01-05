@@ -48,18 +48,19 @@
 
 .content img {
     margin: 40px auto 0px auto;
+    width: 100%;
 }
 
 .content img#energia {
-    width: 400px;
+    max-width: 400px;
 }
 
 .content img#cieplo {
-    width: 500px;
+    max-width: 500px;
 }
 
 .content img#kalorymetr {
-    width: 400px;
+    max-width: 400px;
 }
 
 .content img + span.img-sub::before {
@@ -105,4 +106,5 @@ td {
 .sources {
     margin-top: 30px;
     font-size: .7em;
+    overflow: hidden;
 }

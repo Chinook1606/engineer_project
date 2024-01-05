@@ -112,8 +112,17 @@
 .left-list li,
 .right-list li {
   margin-bottom: 10px; /* Space between list items */
+  text-align: left;
   display: flex; /* Use flex to help align numbers */
   align-items: center; /* Center align list items */
+  font-size: 0.7em;
+}
+
+@media (min-width: 800px) {
+  .left-list li,
+.right-list li {
+  font-size: 1em;
+}
 }
 
 .right-list {
