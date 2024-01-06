@@ -13,7 +13,18 @@
     <script src="assets/templates/navbar/navbar.js"></script>
     <script id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
     <script>
+
+      function centeredText(doc, text, y) {
+        var textWidth =
+          (doc.getStringUnitWidth(text) * doc.internal.getFontSize()) /
+          doc.internal.scaleFactor;
+        var textOffset = (doc.internal.pageSize.width - textWidth) / 2;
+        doc.text(text, textOffset, y);
+}
       function calculate() {
           event.preventDefault(); 
 
@@ -42,7 +53,116 @@
           q3.value = parseInt(parseFloat(q1.value) + parseFloat(q2.value));
           cwst.value = parseInt((parseFloat(q3.value))/(parseFloat(mcst.value)*(parseFloat(t2.value)-parseFloat(t3.value))));
 
+          document.getElementById("exportButton").style.display = "block";
       }
+
+      function showExportOptions() {
+        document.getElementById("exportOptions").style.display = "block";
+        showExportOptions1();
+        showExportOptions2();
+    }
+    function showExportOptions1() {
+        document.getElementById("exportOptions1").style.display = "block";
+    }
+    function showExportOptions2() {
+        document.getElementById("exportOptions2").style.display = "block";
+    }
+
+    function saveToPDF() {
+      const description = document.getElementById("description").value;
+      const imie = document.getElementById("imie").value;
+      const nazwisko = document.getElementById("nazwisko").value;
+      const przedmiot = document.getElementById("przedmiot").value;
+      const nr_indeksu = document.getElementById("nr_indeksu").value;
+      const kierunek = document.getElementById("kierunek").value;
+      const nr_lab = document.getElementById("nr_lab").value;
+      const tytul = document.getElementById("tytul").value;
+
+
+      // Utwórz PDF
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFont("times");
+      // Pierwsza strona - Wyśrodkowany tytuł wielkimi literami
+      doc.setFontSize(32);
+      doc.setFont("times", "bold");
+      centeredText(doc, "UNIWERSYTET", 45);
+      centeredText(doc, "KOMISJI  EDUKACJI  NARODOWEJ", 60);
+      centeredText(doc, "W  KRAKOWIE", 75);
+      doc.setFont("times", "normal");
+      doc.setFontSize(16);
+      centeredText(doc, `${przedmiot}`, 95);
+
+      // Tutaj wstaw obraz logo (wyśrodkowany)
+      var imgData; // Tu powinien być ciąg base64 obrazu logo
+      var imgWidth = 80; // Szerokość obrazu w mm
+      var imgHeight = 40; // Wysokość obrazu w mm
+      var x = doc.internal.pageSize.width / 2 - imgWidth / 2;
+      var y = 80; // Wysokość, na której powinno być logo
+      // doc.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
+      doc.addImage("assets/images/pdf/uken_logo.png", "PNG", 25, 90, 160, 95);
+
+      doc.setFontSize(18);
+      doc.setFont("times", "bold");
+      centeredText(doc, "Laboratorium 4", 182);
+      doc.setFont("times", "normal");
+      centeredText(doc, "Oscylator harmoniczny", 195);
+
+      // Informacje o autorze
+      const pageInfo = doc.internal.pageSize;
+      const pageHeight = pageInfo.height ? pageInfo.height : pageInfo.getHeight();
+      doc.setFontSize(12);
+      doc.text("Wykonał:", pageInfo.width - 70, pageHeight - 30);
+      doc.text(`${imie}`, pageInfo.width - 70, pageHeight - 20);
+      doc.text("Informatyka IV rok", pageInfo.width - 70, pageHeight - 10);
+      doc.text("nr. 151932", pageInfo.width - 70, pageHeight);
+
+      // Dodaj drugą stronę
+      doc.addPage();
+
+      // Druga strona - Dane
+      doc.setFontSize(16);
+      centeredText(doc, "Wyniki eksportu:", 20);
+
+      doc.setFontSize(14);
+      centeredText(doc, `Suma: ${imie}`, 40);
+      centeredText(doc, `Imię: jan`, 50);
+      centeredText(doc, `Nazwisko: ${imie}`, 60);
+
+      doc.autoTable({
+        startY: 70,
+        head: [["Kolumna 1", "Kolumna 2", "Kolumna 3"]],
+        body: [
+          ["Dane 1.1", "Dane 1.2", "Dane 1.3"],
+          ["Dane 2.1", "Dane 2.2", "Dane 2.3"],
+        ],
+      });
+
+      // Dodaj trzecią stronę z opisem
+      doc.addPage();
+
+      // Ustawienia czcionki dla opisu
+      doc.setFont("times", "normal");
+      doc.setFontSize(12);
+
+      // Ustawienie marginesów
+      const margins = {
+        top: 20,
+        bottom: 20,
+        left: 20,
+        width: 170,
+      };
+
+      // Dodaj tekst opisu z zawijaniem do nowej linii
+      doc.text(description, margins.left, margins.top, {
+        maxWidth: margins.width,
+        align: "justify",
+      });
+
+      // Zapisz PDF
+      doc.save("sprawozdanie.pdf");
+}
+
       </script>
   </head>
   <body>
@@ -170,10 +290,93 @@
                   </div>
                 </div>
               </div>
+            </div><br>
+            <!-- Sekcja po kliknięciu przycisku Oblicz  -->
+            <input id="exportButton" class="submit-btn" type="button" value="Eksportuj"
+              onclick="showExportOptions()" style="display:none;">
+
+            <!-- Sekcja informacji ogólnych -->
+            <div class="form-div" id="exportOptions" style="display:none;">
+              <div class="top">Informacje ogólne</div>
+              <div class="bottom">
+                <div class="bottom-cont">
+                  <div>Nazwa przedmiotu</div>
+                  <div>
+                    <input class="tex" type="text" id="przedmiot"
+                      placeholder="Pozostaw puste jeśli nie dotyczy.">
+                  </div>
+                </div>
+              </div>
+              <div class="bottom">
+                <div class="bottom-cont">
+                  <div>Numer laboratorium</div>
+                  <div>
+                    <input class="tex" type="text" id="nr_lab">
+                  </div>
+                </div>
+                <div class="bottom-cont">
+                  <div>Tytuł laboratorium</div>
+                  <div>
+                    <input class="tex" type="text" id="tytul"
+                      placeholder="Pozostaw puste jeśli nie dotyczy.">
+                  </div>
+                </div>
+              </div>
+              <div class="dashed-line"></div>
+              <div class="bottom">
+                <div class="bottom-cont">
+                  <div>Imie</div>
+                  <div>
+                    <input class="tex" type="text" id="imie">
+                  </div>
+                </div>
+                <div class="bottom-cont">
+                  <div>Nazwisko</div>
+                  <div>
+                    <input class="tex" type="text" id="nazwisko">
+                  </div>
+                </div>
+              </div>
+              <div class="bottom">
+                <div class="bottom-cont">
+                  <div>Kierunek</div>
+                  <div>
+                    <input class="tex" type="text" id="kierunek"
+                      placeholder="Pozostaw puste jeśli nie dotyczy.">
+                  </div>
+                </div>
+                <div class="bottom-cont">
+                  <div>Numer indeksu</div>
+                  <div>
+                    <input class="tex" type="text" id="nr_indeksu"
+                      placeholder="Pozostaw puste jeśli nie dotyczy.">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Sekcja informacji ogólnych -->
+            <div class="form-div" id="exportOptions1" style="display:none;">
+              <div class="top">Wnioski</div>
+              <div class="bottom">
+                <div class="bottom-cont">
+                  <div>
+                    <textarea class="tex" type="text" id="description"
+                      placeholder="Miejsce na wypisanie wniosków z laboratorium."
+                      style="width: 100%; height: 10em;"></textarea>
+                  </div>
+                </div>
+              </div>
             </div>
 
+            <!-- Pobieranie PDF'a  -->
+            <input class="submit-btn" id="exportOptions2" type="button" value="Zapisz do PDF"
+              onclick="saveToPDF()" style="display:none;">
+            <!-- Sekcja z wnioskami  -->
+
           </form>
+
         </section>
+
       </div>
 
       <div id="footer-placeholder"></div>

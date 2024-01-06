@@ -1,91 +1,117 @@
 form {
-    /* max-width: 400px; */
-    display: flex;
-    flex-direction: column;
-    margin: 5vh auto;
-    background-color: #fff;
-    padding: 20px;
-    max-width: 700px;
-    font-size: 0.96em;
-  }
+  /* max-width: 400px; */
+  display: flex;
+  flex-direction: column;
+  margin: 5vh auto;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 700px;
+  font-size: 0.96em;
+}
 
-  form div.form-div {
-    text-align: center;
-    border: 1px solid rgb(214, 214, 214);
-    margin: 0px 0 25px 0;
-  }
+form div.form-div {
+  text-align: center;
+  border: 1px solid rgb(214, 214, 214);
+  margin: 0px 0 25px 0;
+}
 
-  form div.form-div div.top {
-    background-color: #f2f2f2;
-    padding: 10px;
-    font-size: 1.55em;
-  }
+form div.form-div div.top {
+  background-color: #f2f2f2;
+  padding: 10px;
+  font-size: 1.55em;
+}
 
+form div.form-div div.bottom {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+}
+
+@media (min-width: 745px) {
   form div.form-div div.bottom {
-    display: flex;
-    text-align: left;
-    flex-direction: column;
+    flex-direction: row;
   }
+}
 
-  @media (min-width: 745px) {
-    form div.form-div div.bottom {
-      flex-direction: row;
-    }
-  }
+form div.form-div div.bottom .bottom-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px 0 10px;
+}
 
-  form div.form-div div.bottom .bottom-cont {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 10px 10px 0 10px;
-  }
+form div.form-div div.bottom .bottom-cont div {
+  width: 100%;
+  margin-bottom: 4px;
+}
 
-  form div.form-div div.bottom .bottom-cont div {
-    width: 100%;
-    margin-bottom: 4px;
-  }
+form div.form-div div.bottom .bottom-cont input {
+  width: 96%;
+  padding-right: 24px;
+  text-align: right;
+  font-size: 10pt;
+}
 
-  form div.form-div div.bottom .bottom-cont input {
-    width: 96%;
-    padding-right:24px; text-align:right;
-    font-size: 10pt;
-  }
+form div.form-div div.bottom .bottom-cont span {
+  margin-left: -24px;
+  font-size: 10pt;
+}
 
-  form div.form-div div.bottom .bottom-cont span {
-    margin-left:-24px;
-    font-size: 10pt;
-  }
+form div.form-div div.bottom .bottom-cont input.tex {
+  padding-right: 35px;
+  text-align: right;
+}
 
-  form div.form-div div.bottom .bottom-cont input.tex {
-    padding-right:35px; text-align:right;
-  }
+form div.form-div div.bottom .bottom-cont span.tex {
+  margin-left: -35px;
+}
 
-  form div.form-div div.bottom .bottom-cont span.tex {
-    margin-left:-35px;
-  }
-  
-  input {
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-  }
-  
-  input[type="text"] {
-    border: 1px solid #ccc;
-  }
-  
-  input[type="submit"] {
-    background-color: rgb(91, 99, 216);
-    font-size: 1.6em;
-    color: white;
-    border: none;
-    padding: 15px 15px;
-    width: 100%;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 0px auto 25px auto;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: rgb(36, 45, 167);
-  }
+input {
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+input[type="text"] {
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  background-color: rgb(91, 99, 216);
+  font-size: 1.6em;
+  color: white;
+  border: none;
+  padding: 15px 15px;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0px auto 25px auto;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(36, 45, 167);
+}
+
+input[type="button"] {
+  background-color: rgb(91, 99, 216);
+  font-size: 1.6em;
+  color: white;
+  border: none;
+  padding: 15px 15px;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0px auto 25px auto;
+}
+
+input[type="button"]:hover {
+  background-color: rgb(36, 45, 167);
+}
+
+.dashed-line {
+  border-top: 1.25px dashed #cccccc; /* Creates a dashed line */
+  width: 80%; /* Ensures the line spans the width of the container */
+  margin-left: 10%;
+  margin-top: 1em;
+  margin-bottom: 0.75em;
+}
