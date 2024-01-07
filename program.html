@@ -38,17 +38,23 @@ var q1Value, q2Value, q3Value,cwalValue,cwh2oValue,cwstValue;
 
           const mk = document.getElementsByName("mk")[0];
           const mkw = document.getElementsByName("mkw")[0];
-          const mcst = document.getElementsByName("mcst")[0]; // nie znamy masy własnej obiektu, więc trzeba ją podać, do wyjaśnienia
+          const mcst = document.getElementsByName("mcst")[0];
+
+          mk.value = mk.value.replace(/,/g, '.');
+          mkw.value = mkw.value.replace(/,/g, '.');
+          mcst.value = mcst.value.replace(/,/g, '.');
 
           const t1 = document.getElementsByName("t1")[0];
           const t2 = document.getElementsByName("t2")[0];
           const t3 = document.getElementsByName("t3")[0];
 
+          t1.value = t1.value.replace(/,/g, '.');
+          t2.value = t2.value.replace(/,/g, '.');
+          t3.value = t3.value.replace(/,/g, '.');
+
           const q1 = document.getElementsByName("q1")[0];
           const q2 = document.getElementsByName("q2")[0];
           const q3 = document.getElementsByName("q3")[0];
-
-
           
           const cwal = document.getElementsByName("cwal")[0];
           cwal.value = 1029;
