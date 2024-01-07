@@ -13,10 +13,18 @@
     <script src="assets/templates/navbar/navbar.js"></script>
     <script id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+    <script src="assets/js/image_base64.js"></script>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
     <script>
+
+
+var q1Value, q2Value, q3Value,cwalValue,cwh2oValue,cwstValue;
+
 
       function centeredText(doc, text, y) {
         var textWidth =
@@ -54,6 +62,13 @@
           cwst.value = parseInt((parseFloat(q3.value))/(parseFloat(mcst.value)*(parseFloat(t2.value)-parseFloat(t3.value))));
 
           document.getElementById("exportButton").style.display = "block";
+
+          q1Value = parseFloat(q1.value);
+    q2Value = parseFloat(q2.value);
+    q3Value = parseFloat(q3.value);
+    cwalValue = parseFloat(cwal.value);
+    cwh2oValue = parseFloat(cwh2o.value);
+    cwstValue = parseFloat(cwst.value);
       }
 
       function showExportOptions() {
@@ -69,6 +84,14 @@
     }
 
     function saveToPDF() {
+      const mk = document.getElementsByName("mk")[0].value;
+      const mkw = document.getElementsByName("mkw")[0].value;
+      const mcst = document.getElementsByName("mcst")[0].value; 
+
+      const t1 = document.getElementsByName("t1")[0].value;
+      const t2 = document.getElementsByName("t2")[0].value;
+      const t3 = document.getElementsByName("t3")[0].value;
+
       const description = document.getElementById("description").value;
       const imie = document.getElementById("imie").value;
       const nazwisko = document.getElementById("nazwisko").value;
@@ -77,90 +100,197 @@
       const kierunek = document.getElementById("kierunek").value;
       const nr_lab = document.getElementById("nr_lab").value;
       const tytul = document.getElementById("tytul").value;
+  // const imie = "Jan";
+  // const nazwisko = "Pszczęgła";
+  // const przedmiot = "Modelowanie i cos tam wielkiego";
+  // const nr_indeksu = "151232";
+  // const kierunek = "Informatyka";
+  // const nr_lab = "2";
+  // const tytul = "Jakiś super fajny tytuł.";
+  // const description = "avd";
 
-
-      // Utwórz PDF
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-      doc.setFont("times");
-      // Pierwsza strona - Wyśrodkowany tytuł wielkimi literami
-      doc.setFontSize(32);
-      doc.setFont("times", "bold");
-      centeredText(doc, "UNIWERSYTET", 45);
-      centeredText(doc, "KOMISJI  EDUKACJI  NARODOWEJ", 60);
-      centeredText(doc, "W  KRAKOWIE", 75);
-      doc.setFont("times", "normal");
-      doc.setFontSize(16);
-      centeredText(doc, `${przedmiot}`, 95);
-
+  // Definicja dokumentu dla pdfmake
+  const docDefinition = {
+    content: [
+      { text: 'UNIWERSYTET', style: 'header_up' },
+      { text: 'KOMISJI EDUKACJI NARODOWEJ', style: 'header' },
+      { text: 'W KRAKOWIE', style: 'header' },
+      { text: przedmiot, style: 'subheader' },
       // Tutaj wstaw obraz logo (wyśrodkowany)
-      var imgData; // Tu powinien być ciąg base64 obrazu logo
-      var imgWidth = 80; // Szerokość obrazu w mm
-      var imgHeight = 40; // Wysokość obrazu w mm
-      var x = doc.internal.pageSize.width / 2 - imgWidth / 2;
-      var y = 80; // Wysokość, na której powinno być logo
-      // doc.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
-      doc.addImage("assets/images/pdf/uken_logo.png", "PNG", 25, 90, 160, 95);
+      {
+        image: logoBase64,
+        width: 520,
+        alignment: 'center',
+        margin: [0, -18, 0, 0] // [left, top, right, bottom]
+      },
+      { text: `Laboratorium ${nr_lab}`, style: 'lab' },
+      { text: tytul, style: 'tytul' },
+      { text: 'Wykonał:', style: 'author_head'}, // margin top dla odstępu
+      { text: `${imie} ${nazwisko}`, style: 'author' },
+      kierunek ? { text: `${kierunek}`, style: 'author' } : null,
+      nr_indeksu ? { text: `nr. ${nr_indeksu}`, style: 'author' } : null,
+      { text: 'Wyniki:', style: 'page_header', pageBreak: 'before' },
+      { text: "Dane wejściowe:", style: 'sector_title' },
+      { text: "Masa", style: 'table_title' },
+      // {
+      //   table: {
+      //     // Headers and body 
+      //     body: [
+      //       ['Kolumna 1', 'Kolumna 2', 'Kolumna 3'],
+      //       ['Dane 1.1', 'Dane 1.2', 'Dane 1.3'],
+            
+      //       ['Dane 2.1', 'Dane 2.2', 'Dane 2.3']
+      //     ]
+      //   },
+      //   layout: 'lightHorizontalLines' // optional
+      // },
+      {
+  style: 'tableExample',
+  table: {
+    widths: [150, 150, 150], // Każda kolumna zajmie równą część dostępnej szerokości strony
+    body: [
+      [{ text: ['Kalorymetru [ m',{ text: 'k', fontSize: 8 },' ]'], style: 'tableHeaderCell' }, { text: ['Kalorymetru z wodą [ m',{ text: 'k+w', fontSize: 8 }, ' ]'], style: 'tableHeaderCell' }, { text: ['Ciała stałego [ m',{ text: 'cst', fontSize: 8 }, ' ]'], style: 'tableHeaderCell' }],
+      [{ text: [mk, '  kg'] }, { text: [mkw, '  kg'] }, { text: [mcst, '  kg'] }]
+    ]
+  },
+  alignment: 'center',
+  margin: [20,0,0,0],
+  layout: 'Borders',
+},
+{ text: "Temperatura", style: 'table_title' },
+{
+  style: 'tableExample',
+  table: {
+    widths: [150, 150, 150], // Każda kolumna zajmie równą część dostępnej szerokości strony
+    body: [
+      [{ text: ['Początkowa wody [ t',{ text: '1', fontSize: 8 }, ' ]'], style: 'tableHeaderCell' }, { text: ['Ciała stałego [ t',{ text: '2', fontSize: 8 }, ' ]'], style: 'tableHeaderCell' }, { text: ['Końcowa wody [ t',{ text: '3', fontSize: 8 }, ' ]'], style: 'tableHeaderCell' }],
+      [{ text: [t1, '  °C'] }, { text: [t2, '  °C'] }, { text: [t3, '  °C'] }]
+    ]
+  },
+  alignment: 'center',
+  margin: [20,0,0,0],
+  layout: 'Borders',
+},
+{ text: "Otrzymane dane:", style: 'sector_title', margin:[20,30,0,0] },
+{ text: "Ciepło", style: 'table_title' },
+{
+  style: 'tableExample',
+  table: {
+    widths: [150, 150, 150], // Każda kolumna zajmie równą część dostępnej szerokości strony
+    body: [
+      [{ text: ['Pobrane przez kalorymetr [ Q',{ text: '1', fontSize: 8 }, ' ]'], style: 'tableHeaderCell' }, { text: ['Pobrane przez wodę      [ Q',{ text: '2', fontSize: 8 }, ' ]'], style: 'tableHeaderCell' }, { text: ['Oddane przez ciało stałe [ Q',{ text: '3', fontSize: 8 }, ' ]'], style: 'tableHeaderCell' }],
+      [{ text: [q1Value, '  J'] }, { text: [q2Value, '  J'] }, { text: [q3Value, '  J'] }]
+    ]
+  },
+  alignment: 'center',
+  margin: [20,0,0,0],
+  layout: 'Borders',
+},
+{ text: "Ciepło właściwe", style: 'table_title' },
+{
+  style: 'tableExample',
+  table: {
+    widths: [150, 150, 150], // Każda kolumna zajmie równą część dostępnej szerokości strony
+    body: [
+      [{ text: ['Kalorymetru [ C',{ text: 'w', fontSize: 8 }, 'Al ]'], style: 'tableHeaderCell' }, { text: ['Wody [ C',{ text: 'w', fontSize: 8 }, 'H2O ]'], style: 'tableHeaderCell' }, { text: ['Ciała stałego [ C',{ text: 'wcst', fontSize: 8 }, ' ]'], style: 'tableHeaderCell' }],
+      [{ text: [cwalValue, '  J/kg·K'] }, { text: [cwh2oValue, '  J/kg·K'] }, { text: [cwstValue, '  J/kg·K'] }]
+    ]
+  },
+  alignment: 'center',
+  margin: [20,0,0,0],
+  layout: 'Borders',
+},
 
-      doc.setFontSize(18);
-      doc.setFont("times", "bold");
-      centeredText(doc, "Laboratorium 4", 182);
-      doc.setFont("times", "normal");
-      centeredText(doc, "Oscylator harmoniczny", 195);
+      { text: 'Wnioski:', style: 'page_header', pageBreak: 'before' },
+      { text: description, style: 'description' },
+    ],
+    styles: {
+      header_up: {
+        fontSize: 34,
+        bold: true,
+        alignment: 'center',
+        margin: [0, 30,0,0] // [left, top, right, bottom]
+      },
+      tytul: {
+        fontSize: 18,
+        alignment: 'center',
+        margin: [0, 10,0,0]
+      },
+      header: {
+        fontSize: 34,
+        bold: true,
+        alignment: 'center',
+        margin: [0, 6,0,0] // [left, top, right, bottom]
+      },
+      page_header: {
+        fontSize: 28,
+        bold: true,
+        alignment: 'left',
+        margin: [20, 6,0,30] // [left, top, right, bottom]
+      },
+      lab: {
+        fontSize: 20,
+        bold: true,
+        alignment: 'center',
+        margin: [0, -25,0,0]
+      },
+      subheader: {
+        fontSize: 20,
+        bold: true,
+        alignment: 'center',
+        margin: [0, 40,0,0]
+      },
+      author_head: {
+        fontSize: 14,
+        bold: true,
+        alignment: 'right',
+        margin: [0, 135,0,0]
+      },
+      author: {
+        fontSize: 14,
+        bold: false,
+        alignment: 'right',
+        margin: [0, 4]
+      },
+      description: {
+        fontSize: 12,
+        alignment: 'justify',
+        margin: [20, 20, 20, 20] // [left, top, right, bottom]
+      },
+      table_title: {
+        alignment: 'center',
+        fontSize: 15,
+        bold:true,
+        margin:[0,20,0,8]
+      },
+      sector_title:{
+        alignment: 'left',
+        fontSize: 18,
+        bold:true,
+        margin:[20,0,0,0]
+      },
+      tableHeader: {
+      bold: true,
+      fontSize: 13,
+      color: 'black',
+      margin: [0, 0, 0, 8] // Dodatkowy odstęp pod tytułem
+    },
+    tableHeaderCell: {
+      fillColor: '#eeeeee',
+      bold: true,
+      alignment: 'center',
+    },
+    tableExample: {
+      margin: [0, 5, 0, 15]
+    },
+    },
+    defaultStyle: {
+      font: 'Roboto' // Ustawienie domyślnej czcionki, która obsługuje polskie znaki
+    }
+  };
 
-      // Informacje o autorze
-      const pageInfo = doc.internal.pageSize;
-      const pageHeight = pageInfo.height ? pageInfo.height : pageInfo.getHeight();
-      doc.setFontSize(12);
-      doc.text("Wykonał:", pageInfo.width - 70, pageHeight - 30);
-      doc.text(`${imie}`, pageInfo.width - 70, pageHeight - 20);
-      doc.text("Informatyka IV rok", pageInfo.width - 70, pageHeight - 10);
-      doc.text("nr. 151932", pageInfo.width - 70, pageHeight);
-
-      // Dodaj drugą stronę
-      doc.addPage();
-
-      // Druga strona - Dane
-      doc.setFontSize(16);
-      centeredText(doc, "Wyniki eksportu:", 20);
-
-      doc.setFontSize(14);
-      centeredText(doc, `Suma: ${imie}`, 40);
-      centeredText(doc, `Imię: jan`, 50);
-      centeredText(doc, `Nazwisko: ${imie}`, 60);
-
-      doc.autoTable({
-        startY: 70,
-        head: [["Kolumna 1", "Kolumna 2", "Kolumna 3"]],
-        body: [
-          ["Dane 1.1", "Dane 1.2", "Dane 1.3"],
-          ["Dane 2.1", "Dane 2.2", "Dane 2.3"],
-        ],
-      });
-
-      // Dodaj trzecią stronę z opisem
-      doc.addPage();
-
-      // Ustawienia czcionki dla opisu
-      doc.setFont("times", "normal");
-      doc.setFontSize(12);
-
-      // Ustawienie marginesów
-      const margins = {
-        top: 20,
-        bottom: 20,
-        left: 20,
-        width: 170,
-      };
-
-      // Dodaj tekst opisu z zawijaniem do nowej linii
-      doc.text(description, margins.left, margins.top, {
-        maxWidth: margins.width,
-        align: "justify",
-      });
-
-      // Zapisz PDF
-      doc.save("sprawozdanie.pdf");
+  // Otworzenie wygenerowanego PDF w nowym oknie przeglądarki
+  pdfMake.createPdf(docDefinition).download();
 }
 
       </script>
@@ -339,7 +469,7 @@
               </div>
               <div class="bottom">
                 <div class="bottom-cont">
-                  <div>Kierunek</div>
+                  <div>Kierunek i rok studiów</div>
                   <div>
                     <input class="tex" type="text" id="kierunek"
                       placeholder="Pozostaw puste jeśli nie dotyczy.">
