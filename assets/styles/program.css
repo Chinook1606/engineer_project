@@ -9,6 +9,12 @@ form {
   font-size: 0.96em;
 }
 
+.bilans {
+  text-align: center;
+  margin: 0 auto 25px auto;
+  font-size: 1.5em;
+}
+
 form div.form-div {
   text-align: center;
   border: 1px solid rgb(214, 214, 214);
