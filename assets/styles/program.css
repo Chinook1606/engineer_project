@@ -39,6 +39,12 @@ form div.form-div div.bottom {
   }
 }
 
+@media (max-width: 730px) {
+  .hide {
+    font-size: 0.85em;
+  }
+}
+
 form div.form-div div.bottom .bottom-cont {
   width: 100%;
   display: flex;
