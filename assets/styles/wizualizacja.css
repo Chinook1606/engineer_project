@@ -12,71 +12,70 @@
 .container-box {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center children horizontally */
-  justify-content: center; /* Center children vertically */
-  width: 100%; /* Full width of the viewport */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .red-box.large {
   background-color: white;
-  height: calc(100% + 15px); /* Example height, adjust as needed */
-  width: 100%; /* Full width of the container-box */
-  display: flex; /* Use flexbox for alignment */
-  align-items: center; /* Center children vertically */
-  justify-content: center; /* Center children horizontally */
+  height: calc(100% + 15px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 1em;
 }
 
 .red-box.large video {
-  width: 80%; /* Set image width to be 80% of its parent */
-  height: auto; /* Maintain the aspect ratio of the GIF */
-  max-height: 100%; /* Ensure the image doesn't exceed the div's height */
+  width: 80%;
+  height: auto;
+  max-height: 100%;
 }
 
 @media (max-width: 1000px) {
   .red-box.large video {
-    width: 95%; /* Set image width to be 80% of its parent */
-    height: auto; /* Maintain the aspect ratio of the GIF */
-    max-height: 100%; /* Ensure the image doesn't exceed the div's height */
+    width: 95%;
+    height: auto;
+    max-height: 100%;
   }
 }
 
 .steps-title {
-  background-color: rgba(91, 99, 216, 0.2); /* Delikatne fioletowe tło */
-  border-radius: 20px; /* Zaokrąglone rogi */
-  padding: 20px; /* Wewnętrzny odstęp */
-  display: flex; /* Flexbox do wyśrodkowania zawartości */
-  justify-content: center; /* Wyśrodkowanie poziome */
-  align-items: center; /* Wyśrodkowanie pionowe */
-  text-align: center; /* Wyśrodkowanie tekstu, jeśli zajmuje więcej niż jedną linię */
-  width: auto; /* Szerokość dopasowana do zawartości, dopasuj w razie potrzeby */
-  margin: auto; /* Wyśrodkowanie kontenera, jeśli jest częścią większego layoutu */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Delikatny cień dla efektu głębi */
+  background-color: rgba(91, 99, 216, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: auto;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 10px;
   margin-bottom: 2em;
 }
 
 .steps-title h2 {
-  color: #5b63d8; /* Kolor tekstu */
-  font-size: 1.5rem; /* Rozmiar czcionki, dopasuj w razie potrzeby */
-  margin: 0; /* Usunięcie domyślnego marginesu */
-  /* Możesz również tutaj dodać inne style czcionki, które były wcześniej używane */
+  color: #5b63d8;
+  font-size: 1.5rem;
+  margin: 0;
 }
 
 .boxes {
   display: flex;
-  height: 150px; /* Wysokość trzech mniejszych divów */
+  height: 150px;
 }
 
 .container-box {
-  text-align: center; /* Center text */
+  text-align: center;
   margin-bottom: 1.25em;
 }
 
 .list-container {
   display: flex;
-  justify-content: center; /* Center the lists horizontally */
-  align-items: flex-start; /* Align lists to the top */
+  justify-content: center;
+  align-items: flex-start;
   flex-direction: column;
   margin-bottom: 1em;
   margin-top: 1em;
@@ -91,50 +90,50 @@
 
 .left-list,
 .right-list {
-  list-style: none; /* Remove default list style */
+  list-style: none;
   padding: 0;
-  margin: 0; /* Remove default margins */
-  display: inline-block; /* Allows lists to sit next to each other */
+  margin: 0;
+  display: inline-block;
 }
 
 .left-list li::before,
 .right-list li::before {
-  content: counter(list-item) ". "; /* Add custom numbering */
-  counter-increment: list-item; /* Increment the counter */
-  color: #5b63d8; /* Color of the numbers and dots */
-  font-weight: bold; /* Bold the numbers */
-  display: inline-block; /* Make the numbers align vertically */
-  width: 2em; /* Give enough width for numbers to align */
-  text-align: right; /* Align numbers to the right within the space */
-  margin-right: 5px; /* Ensure space between the number and the text */
+  content: counter(list-item) ". ";
+  counter-increment: list-item;
+  color: #5b63d8;
+  font-weight: bold;
+  display: inline-block;
+  width: 2em;
+  text-align: right;
+  margin-right: 5px;
 }
 
 .left-list li,
 .right-list li {
-  margin-bottom: 10px; /* Space between list items */
+  margin-bottom: 10px;
   text-align: left;
-  display: flex; /* Use flex to help align numbers */
-  align-items: center; /* Center align list items */
+  display: flex;
+  align-items: center;
   font-size: 0.7em;
 }
 
 @media (min-width: 800px) {
   .left-list li,
-.right-list li {
-  font-size: 1em;
-}
+  .right-list li {
+    font-size: 1em;
+  }
 }
 
 .right-list {
-  counter-reset: list-item 6; /* Start numbering for the right list at 7 */
+  counter-reset: list-item 6;
 }
 
 .left-list {
-  counter-reset: list-item 0; /* Start numbering for the left list at 1 */
+  counter-reset: list-item 0;
 }
 
 .dashed-line {
-  border-top: 2px dashed #cccccc; /* Creates a dashed line */
-  width: 95%; /* Ensures the line spans the width of the container */
-  margin: 1.8em 0 1em 0; /* Adds some vertical spacing above and below the line */
+  border-top: 2px dashed #cccccc;
+  width: 95%;
+  margin: 1.8em 0 1em 0;
 }
