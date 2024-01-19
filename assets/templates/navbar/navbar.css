@@ -27,19 +27,13 @@
 }
 
 .navbar__brand {
-  font-size: 3.4vw;
+  font-size: 2em;
   text-decoration: none;
   color: #5b63d8;
   margin-left: 0.625em;
   display: flex;
   align-items: center;
   font-weight: bold;
-}
-
-@media screen and (max-width: 930px) {
-  .navbar__brand {
-    font-size: 3vw;
-  }
 }
 
 .navbar__links {
